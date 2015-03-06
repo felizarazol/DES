@@ -100,19 +100,19 @@ public class Principal extends javax.swing.JFrame {
     private void CifrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CifrarActionPerformed
         String valido = "0123456789ABCDEF";
         String mensaje = "";
-//        for (int i = 0; i < Llave.getText().length(); i++){
-//            // En caso de que la llave no tenga los caracteres necesarios
-//            if (valido.indexOf(Llave.getText().charAt(i)) == -1){
-//                mensaje = "La llave no sirve. Pruebe una nueva";
-//                break;
-//            }
-//        }
-//        if (Llave.getText().isEmpty()){
-//            mensaje = "No hay mensaje para encriptar";
-//        }
-//        if (Llave.getText().length() != 16){
-//            mensaje = "La llave no tiene la longitud adecuada (16 números)";
-//        }
+        for (int i = 0; i < Llave.getText().length(); i++){
+            // En caso de que la llave no tenga los caracteres necesarios
+            if (valido.indexOf(Llave.getText().charAt(i)) == -1){
+                mensaje = "La llave no sirve. Pruebe una nueva";
+                break;
+            }
+        }
+        if (Llave.getText().isEmpty()){
+            mensaje = "No hay mensaje para encriptar";
+        }
+        if (Llave.getText().length() != 16){
+            mensaje = "La llave no tiene la longitud adecuada (16 números)";
+        }
         if (mensaje.isEmpty()){
              Cifrar cifrar = new Cifrar(Texto.getText(), Llave.getText());
         }
