@@ -19,9 +19,9 @@ public class ConvertHexa {
     hexadecimal. La segunda permite convertir este valor en grupos de 4 bits por
     cada numero hexadecimal*/
     
-    String llave;
-    ArrayList<Integer> codigo = new ArrayList<>();
-    ArrayList<Integer> bits = new ArrayList<>();
+    private String llave;
+    private ArrayList<Integer> codigo = new ArrayList<>();
+    private ArrayList<Integer> bits = new ArrayList<>();
     
     public ConvertHexa(String llave) {
         this.llave = llave;
@@ -31,7 +31,7 @@ public class ConvertHexa {
     
     private void convertir(){
         for (int i = 0; i < llave.length(); i++){
-//           System.out.print(llave.charAt(i));
+//           System.out.println(llave.charAt(i));
            switch(llave.charAt(i)){
                case '0':
                    codigo.add(0);
@@ -80,8 +80,9 @@ public class ConvertHexa {
                    break;
                case 'F':
                    codigo.add(15);
+                   break;
                default:
-                   System.err.println("La llave es inválida. Ingrese otra nuevamente.");
+                   System.err.println(llave.charAt(i) + " La llave es inválida. Ingrese otra nuevamente.");
            }
         }
     }
@@ -109,5 +110,18 @@ public class ConvertHexa {
 //            }
 //            System.out.print(bits.get(i));
 //        }
+        
+    }
+
+    public String getLlave() {
+        return llave;
+    }
+
+    public ArrayList<Integer> getCodigo() {
+        return codigo;
+    }
+
+    public ArrayList<Integer> getBits() {
+        return bits;
     }
 }

@@ -18,9 +18,9 @@ public class ConvertBits {
     Implementa dos métodos, el primero recupera el valor en ASCII y el segundo
     lo convierte a bits, y completa con ceros a la izquierda segun sea el caso*/
 
-    String palabra;
-    ArrayList<Integer> ind = new ArrayList();
-    ArrayList<Integer> bits = new ArrayList();
+    private String palabra;
+    private ArrayList<Integer> ind = new ArrayList();
+    private ArrayList<Integer> bits = new ArrayList();
     
     public ConvertBits(String palabra) {
         this.palabra = palabra;
@@ -72,6 +72,18 @@ public class ConvertBits {
 //            System.out.print(bits.get(i));
 //        }
 
+    }
+
+    public String getPalabra() {
+        return palabra;
+    }
+
+    public ArrayList<Integer> getInd() {
+        return ind;
+    }
+
+    public ArrayList<Integer> getBits() {
+        return bits;
     }
     
 }

@@ -5,6 +5,10 @@
  */
 package vistas;
 
+import controladores.Cifrar;
+import controladores.CrearLlaves;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author estma_000
@@ -16,6 +20,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -34,6 +39,8 @@ public class Principal extends javax.swing.JFrame {
         Cifrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         PedirFrase.setText("Ingrese la frase a cifrar:");
 
@@ -92,9 +99,27 @@ public class Principal extends javax.swing.JFrame {
 
     private void CifrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CifrarActionPerformed
         String valido = "0123456789ABCDEF";
-        boolean aceptado = true;
-        for (int i = 0; i < Llave.getText().length(); i++){
-            
+        String mensaje = "";
+//        for (int i = 0; i < Llave.getText().length(); i++){
+//            // En caso de que la llave no tenga los caracteres necesarios
+//            if (valido.indexOf(Llave.getText().charAt(i)) == -1){
+//                mensaje = "La llave no sirve. Pruebe una nueva";
+//                break;
+//            }
+//        }
+//        if (Llave.getText().isEmpty()){
+//            mensaje = "No hay mensaje para encriptar";
+//        }
+//        if (Llave.getText().length() != 16){
+//            mensaje = "La llave no tiene la longitud adecuada (16 números)";
+//        }
+        if (mensaje.isEmpty()){
+             Cifrar cifrar = new Cifrar(Texto.getText(), Llave.getText());
+        }
+        else {
+            JOptionPane.showOptionDialog(null, mensaje, 
+                    "Error", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null, 
+                    new Object[]{" Aceptar "},"Aceptar");
         }
     }//GEN-LAST:event_CifrarActionPerformed
 
