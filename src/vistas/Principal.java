@@ -5,9 +5,6 @@
  */
 package vistas;
 
-import controladores.*;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author estma_000
@@ -37,13 +34,12 @@ public class Principal extends javax.swing.JFrame {
         Cifrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("DES Cipher");
 
         PedirFrase.setText("Ingrese la frase a cifrar:");
 
         Llave.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        PedirLlave.setText("Ingrese la llave a usar (En formato Hexadecimal):");
+        PedirLlave.setText("Ingrese la llave a usar:");
 
         Texto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
@@ -95,22 +91,10 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CifrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CifrarActionPerformed
-        boolean LlaveCorrecta = true;
-        String validos = "1234567890ABCDEF";
+        String valido = "0123456789ABCDEF";
+        boolean aceptado = true;
         for (int i = 0; i < Llave.getText().length(); i++){
-            if (validos.indexOf(Llave.getText().charAt(i)) == -1){
-                LlaveCorrecta = false;
-                break;
-            }
-        }
-        if (LlaveCorrecta == true){
-            ConvertBits texto = new ConvertBits(Texto.getText());
-            ConvertHexa llave = new ConvertHexa(Llave.getText());
-        }
-        else {
-            JOptionPane.showOptionDialog(null, "La llave no sirve. Pruebe una nueva", 
-                    "Error", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null, 
-                    new Object[]{" Aceptar "},"Aceptar");
+            
         }
     }//GEN-LAST:event_CifrarActionPerformed
 
