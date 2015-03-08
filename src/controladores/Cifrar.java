@@ -104,7 +104,7 @@ public class Cifrar {
         ArrayList<Integer> bloquesC = new ArrayList<Integer>();
         //creacion del objeto que contiene las llaves
         crearLlaves = new CrearLlaves(llave);
-        ConvertBits convertBits = new ConvertBits(texto);
+        ConvertHexa convertBits = new ConvertHexa(texto);
         text = convertBits.getBits();
         if (text.size() > 64){
             Iterator<Integer> nombreIterator = text.iterator();
@@ -342,6 +342,7 @@ public class Cifrar {
         L1 = R0;
         E1 = expansion(R0);
         R1 = XOR(L0, innerFunction(XOR(crearLlaves.k1, E1)));
+        System.out.println(R1);
         L2 = R1;
         E2 = expansion(R1);
         R2 = XOR(L1, innerFunction(XOR(crearLlaves.k2, E2)));
@@ -430,7 +431,8 @@ public class Cifrar {
                 Bi.clear();
             }
         }
-        return tempo;
+        System.out.println(perI(tempo));
+        return perI(tempo);
     }
     
     private ArrayList<Integer> XOR (ArrayList<Integer> A, ArrayList<Integer> B){
@@ -1113,4 +1115,41 @@ public class Cifrar {
         return tempo;
     }
     
+    private ArrayList<Integer> perI (ArrayList<Integer> Ci){
+        ArrayList<Integer> tempo = new ArrayList<>();
+        tempo.add(Ci.get(16-1));
+        tempo.add(Ci.get(7-1));
+        tempo.add(Ci.get(20-1));
+        tempo.add(Ci.get(21-1));
+        tempo.add(Ci.get(29-1));
+        tempo.add(Ci.get(12-1));
+        tempo.add(Ci.get(28-1));
+        tempo.add(Ci.get(17-1));
+        tempo.add(Ci.get(1-1));
+        tempo.add(Ci.get(15-1));
+        tempo.add(Ci.get(23-1));
+        tempo.add(Ci.get(26-1));
+        tempo.add(Ci.get(5-1));
+        tempo.add(Ci.get(18-1));
+        tempo.add(Ci.get(31-1));
+        tempo.add(Ci.get(10-1));
+        tempo.add(Ci.get(2-1));
+        tempo.add(Ci.get(8-1));
+        tempo.add(Ci.get(24-1));
+        tempo.add(Ci.get(14-1));
+        tempo.add(Ci.get(32-1));
+        tempo.add(Ci.get(27-1));
+        tempo.add(Ci.get(3-1));
+        tempo.add(Ci.get(9-1));
+        tempo.add(Ci.get(19-1));
+        tempo.add(Ci.get(13-1));
+        tempo.add(Ci.get(30-1));
+        tempo.add(Ci.get(6-1));
+        tempo.add(Ci.get(22-1));
+        tempo.add(Ci.get(11-1));
+        tempo.add(Ci.get(4-1));
+        tempo.add(Ci.get(25-1));
+        return tempo;
+        
+    }
 }
