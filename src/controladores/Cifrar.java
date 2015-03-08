@@ -5,7 +5,9 @@
  */
 package controladores;
 
+import static controladores.ConvertToText.binarioADecimal;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -22,6 +24,9 @@ public class Cifrar {
     
     //Array para la funcion IP
     public ArrayList<Integer> bloqueIP;
+    
+    //Array para la funcion inversa de IP
+    public ArrayList<Integer> cyphertext;
     
     //Arrays para almacenar el lado izquierdo del mensaje
     public ArrayList<Integer> L0 = new ArrayList<>();
@@ -87,49 +92,108 @@ public class Cifrar {
     public String [][] S_B5 = new String [4][16];
     public String [][] S_B6 = new String [4][16];
     public String [][] S_B7 = new String [4][16];
-    public String [][] S_B8 = new String [4][16];    
+    public String [][] S_B8 = new String [4][16];
+    
+    private String mensajeCifrado= new String("");
     
     /*Este objeto cifra el mensaje a partir de las llaves ya creadas
     Falta crear la ultima permutacion, y revisar las excepciones*/
     public Cifrar (String texto, String llave){
         this.texto = texto;
         this.llave = llave;
-        ArrayList<Integer> bloquesC = new ArrayList<>();
-        
+        ArrayList<Integer> bloquesC = new ArrayList<Integer>();
         //creacion del objeto que contiene las llaves
         crearLlaves = new CrearLlaves(llave);
+        ConvertBits convertBits = new ConvertBits(texto);
+        text = convertBits.getBits();
+        if (text.size() > 64){
+            Iterator<Integer> nombreIterator = text.iterator();
+            int contador=0;
+            while(nombreIterator.hasNext()){
+                Integer elemento = nombreIterator.next();
+                bloquesC.add(elemento);
+                contador++;
+                System.out.println("contador  "+contador);
+                if((contador%64)==0||!nombreIterator.hasNext()){
+
+                    //System.out.println("output  "+outputString);
+                    //System.out.println("output  "+binarioADecimal(outputString));
+                    System.out.println("bloquesC: " + bloquesC);
+                    cifrarTextos64(bloquesC, llave);
+                    //System.out.println("output  "+mensajeCifrado);
+                    bloquesC.clear();
+                    L0.clear();L1.clear();L2.clear();L3.clear();L4.clear();
+                    L5.clear();L6.clear();L7.clear();L8.clear();L9.clear();
+                    L9.clear();L10.clear();L11.clear();L12.clear();L13.clear();
+                    L14.clear();L15.clear();L16.clear();
+                    
+                    R0.clear();R1.clear();R2.clear();R3.clear();R4.clear();
+                    R5.clear();R6.clear();R7.clear();R8.clear();R9.clear();
+                    R9.clear();R10.clear();R11.clear();R12.clear();R13.clear();
+                    R14.clear();R15.clear();R16.clear();
+                    
+                    E1.clear();E2.clear();E3.clear();E4.clear();
+                    E5.clear();E6.clear();E7.clear();E8.clear();E9.clear();
+                    E9.clear();E10.clear();E11.clear();E12.clear();E13.clear();
+                    E14.clear();E15.clear();E16.clear();
+                    
+                    S_B1 = new String [4][16];
+                    S_B2 = new String [4][16];
+                    S_B3 = new String [4][16];
+                    S_B4 = new String [4][16];
+                    S_B5 = new String [4][16];
+                    S_B6 = new String [4][16];
+                    S_B7 = new String [4][16];
+                    S_B8 = new String [4][16]; 
+
+                }
+            }
+        }else{
+            cifrarTextos64(text, llave);
+        }
+        System.out.println(mensajeCifrado);
+    }
+    
+    private void cifrarTextos64(ArrayList<Integer> texto, String llave){
         
         //Creacion de los S-Box
         iniciarS_Box();
-        
-        ConvertBits convertBits = new ConvertBits(texto); //Recordar Cambiar por ConvertirBits
-        text = convertBits.getBits();
-        //System.out.println(text.size());
         //se crean bloques de 64 bits
-        crearBloques();
+        crearBloques(texto);
+        //se hacen los 16 rounds
+        creacionSubcadenas();
+        //Se aplica la inversa de IP
+        IPinv(L16, R16);
+        System.out.println("");
+        System.out.println("cypherTp"+cyphertext);
+        System.out.println("");
+        mensajeCifrado=mensajeCifrado+ConvertToText.toText(cyphertext);
+        
     }
-    
-    //Se crean bloques de 64 bits, para mensajes largos
-    private void crearBloques(){
+    //Se crean bloques de 64 bits, para mensajeCifrados largos
+    private void crearBloques(ArrayList<Integer> text){
         while (!text.isEmpty()) {
             ArrayList<Integer> bloque = new ArrayList<>();
-            if (text.size() < 64){
+            if (text.size() <= 64){
                 int dif = 64 - text.size();
                 for (int i = 0; i < dif; i++){
                     text.add(0);
                 }
+            }else{
+                System.out.print("Que mensajeCifrado tan largo!!!");
+                System.exit(0);
             }
             
             for (int i = 0; i < 64; i ++){
                 bloque.add(text.remove(0));
                 
             }
+            //Se aplica IP
             IP(bloque);
             //Creacion de L0 y R0
             L0.addAll(bloqueIP.subList(0, 32));
             R0.addAll(bloqueIP.subList(32, bloqueIP.size()));
-            creacionSubcadenas();
-            System.out.println();
+            
         }
         
         
@@ -202,6 +266,76 @@ public class Cifrar {
         bloqueIP.add(bloque.get(15-1));
         bloqueIP.add(bloque.get(7-1));
         
+    }
+    private void IPinv (ArrayList<Integer> bloqueIzq, ArrayList<Integer> bloqueDer){
+        ArrayList<Integer> bloque = new ArrayList<>();
+        bloque.addAll(bloqueIzq);
+        bloque.addAll(bloqueDer);
+        cyphertext = new ArrayList<>();
+        cyphertext.add(bloque.get(40-1));
+        cyphertext.add(bloque.get(8-1));
+        cyphertext.add(bloque.get(48-1));
+        cyphertext.add(bloque.get(16-1));
+        cyphertext.add(bloque.get(56-1));
+        cyphertext.add(bloque.get(24-1));
+        cyphertext.add(bloque.get(64-1));
+        cyphertext.add(bloque.get(32-1));
+        cyphertext.add(bloque.get(39-1));
+        cyphertext.add(bloque.get(7-1));
+        cyphertext.add(bloque.get(47-1));
+        cyphertext.add(bloque.get(15-1));
+        cyphertext.add(bloque.get(55-1));
+        cyphertext.add(bloque.get(23-1));
+        cyphertext.add(bloque.get(63-1));
+        cyphertext.add(bloque.get(31-1));
+        cyphertext.add(bloque.get(38-1));
+        cyphertext.add(bloque.get(6-1));
+        cyphertext.add(bloque.get(46-1));
+        cyphertext.add(bloque.get(14-1));
+        cyphertext.add(bloque.get(54-1));
+        cyphertext.add(bloque.get(22-1));
+        cyphertext.add(bloque.get(62-1));
+        cyphertext.add(bloque.get(30-1));
+        cyphertext.add(bloque.get(37-1));
+        cyphertext.add(bloque.get(5-1));
+        cyphertext.add(bloque.get(45-1));
+        cyphertext.add(bloque.get(13-1));
+        cyphertext.add(bloque.get(53-1));
+        cyphertext.add(bloque.get(21-1));
+        cyphertext.add(bloque.get(61-1));
+        cyphertext.add(bloque.get(29-1));
+        cyphertext.add(bloque.get(36-1));
+        cyphertext.add(bloque.get(4-1));
+        cyphertext.add(bloque.get(44-1));
+        cyphertext.add(bloque.get(12-1));
+        cyphertext.add(bloque.get(52-1));
+        cyphertext.add(bloque.get(20-1));
+        cyphertext.add(bloque.get(60-1));
+        cyphertext.add(bloque.get(28-1));
+        cyphertext.add(bloque.get(35-1));
+        cyphertext.add(bloque.get(3-1));
+        cyphertext.add(bloque.get(43-1));
+        cyphertext.add(bloque.get(11-1));
+        cyphertext.add(bloque.get(51-1));
+        cyphertext.add(bloque.get(19-1));
+        cyphertext.add(bloque.get(59-1));
+        cyphertext.add(bloque.get(27-1));
+        cyphertext.add(bloque.get(34-1));
+        cyphertext.add(bloque.get(2-1));
+        cyphertext.add(bloque.get(42-1));
+        cyphertext.add(bloque.get(10-1));
+        cyphertext.add(bloque.get(50-1));
+        cyphertext.add(bloque.get(18-1));
+        cyphertext.add(bloque.get(58-1));
+        cyphertext.add(bloque.get(26-1));
+        cyphertext.add(bloque.get(33-1));
+        cyphertext.add(bloque.get(1-1));
+        cyphertext.add(bloque.get(41-1));
+        cyphertext.add(bloque.get(9-1));
+        cyphertext.add(bloque.get(49-1));
+        cyphertext.add(bloque.get(17-1));
+        cyphertext.add(bloque.get(57-1));
+        cyphertext.add(bloque.get(25-1));
     }
     
     private void creacionSubcadenas(){
@@ -435,7 +569,7 @@ public class Cifrar {
         S_B1[3][12] = "1010";
         S_B1[3][13] = "0000";
         S_B1[3][14] = "0110";
-        S_B1[3][14] = "1101";
+        S_B1[3][15] = "1101";
                
         //Segunda tabla
         S_B2[0][0] = "1111";
@@ -944,8 +1078,8 @@ public class Cifrar {
         }
         //Con los numeros en decimales, se puede buscar en las tablas
         ArrayList<Integer> tempo = new ArrayList<>();
-        String resultado = new String(); 
-        System.out.print(tabla + " ");
+        String resultado = new String();
+        //System.out.print(tabla + " ");
         if (tabla == 5){
             resultado = S_B1[r0][c0];
         }
@@ -970,6 +1104,8 @@ public class Cifrar {
         if (tabla == 47){
             resultado = S_B8[r0][c0];
         }
+        System.out.println("tabla: "+tabla+" sb: " + S_B1[r0][c0] + " resultado: "+resultado);
+        System.out.println("r y c:"+r0+"  "+c0);
         //Se convierte el String recuperado a un ArrayList
         for (int i = 0; i < resultado.length(); i++){
             tempo.add(Integer.parseInt("" + resultado.charAt(i)));
