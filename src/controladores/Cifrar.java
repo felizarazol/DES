@@ -343,11 +343,12 @@ public class Cifrar {
         L1 = R0;
         E1 = expansion(R0);
         R1 = XOR(L0, innerFunction(XOR(crearLlaves.k1, E1)));
-        System.out.println(R1);
+        System.out.println("R1: "+R1);
         L2 = R1;
         E2 = expansion(R1);
         R2 = XOR(L1, innerFunction(XOR(crearLlaves.k2, E2)));
         System.out.println(R2);
+        System.out.println("R2: "+R2);
         L3 = R2;
         E3 = expansion(R2);
         R3 = XOR(L2, innerFunction(XOR(crearLlaves.k3, E3)));
@@ -1107,8 +1108,6 @@ public class Cifrar {
         if (tabla == 47){
             resultado = S_B8[r0][c0];
         }
-        System.out.println("tabla: "+tabla+" sb: " + S_B1[r0][c0] + " resultado: "+resultado);
-        System.out.println("r y c:"+r0+"  "+c0);
         //Se convierte el String recuperado a un ArrayList
         for (int i = 0; i < resultado.length(); i++){
             tempo.add(Integer.parseInt("" + resultado.charAt(i)));
