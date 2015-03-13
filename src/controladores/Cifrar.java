@@ -18,71 +18,71 @@ public class Cifrar {
     private String texto;
     private String llave;
     
-    public CrearLlaves crearLlaves;
+    public static CrearLlaves crearLlaves;
     
     private ArrayList<Integer> text = new ArrayList();
     
     //Array para la funcion IP
-    public ArrayList<Integer> bloqueIP;
+    public static ArrayList<Integer> bloqueIP;
     
     //Array para la funcion inversa de IP
-    public ArrayList<Integer> cyphertext;
+    public static ArrayList<Integer> cyphertext;
     
     //Arrays para almacenar el lado izquierdo del mensaje
-    public ArrayList<Integer> L0 = new ArrayList<>();
-    public ArrayList<Integer> L1 = new ArrayList<>();
-    public ArrayList<Integer> L2 = new ArrayList<>();
-    public ArrayList<Integer> L3 = new ArrayList<>();
-    public ArrayList<Integer> L4 = new ArrayList<>();
-    public ArrayList<Integer> L5 = new ArrayList<>();
-    public ArrayList<Integer> L6 = new ArrayList<>();
-    public ArrayList<Integer> L7 = new ArrayList<>();
-    public ArrayList<Integer> L8 = new ArrayList<>();
-    public ArrayList<Integer> L9 = new ArrayList<>();
-    public ArrayList<Integer> L10 = new ArrayList<>();
-    public ArrayList<Integer> L11 = new ArrayList<>();
-    public ArrayList<Integer> L12 = new ArrayList<>();
-    public ArrayList<Integer> L13 = new ArrayList<>();
-    public ArrayList<Integer> L14 = new ArrayList<>();
-    public ArrayList<Integer> L15 = new ArrayList<>();
-    public ArrayList<Integer> L16 = new ArrayList<>();
+    public static ArrayList<Integer> L0 = new ArrayList<>();
+    public static ArrayList<Integer> L1 = new ArrayList<>();
+    public static ArrayList<Integer> L2 = new ArrayList<>();
+    public static ArrayList<Integer> L3 = new ArrayList<>();
+    public static ArrayList<Integer> L4 = new ArrayList<>();
+    public static ArrayList<Integer> L5 = new ArrayList<>();
+    public static ArrayList<Integer> L6 = new ArrayList<>();
+    public static ArrayList<Integer> L7 = new ArrayList<>();
+    public static ArrayList<Integer> L8 = new ArrayList<>();
+    public static ArrayList<Integer> L9 = new ArrayList<>();
+    public static ArrayList<Integer> L10 = new ArrayList<>();
+    public static ArrayList<Integer> L11 = new ArrayList<>();
+    public static ArrayList<Integer> L12 = new ArrayList<>();
+    public static ArrayList<Integer> L13 = new ArrayList<>();
+    public static ArrayList<Integer> L14 = new ArrayList<>();
+    public static ArrayList<Integer> L15 = new ArrayList<>();
+    public static ArrayList<Integer> L16 = new ArrayList<>();
     
     //Arrays para almacenar el lado derecho del mensaje
-    public ArrayList<Integer> R0 = new ArrayList<>();
-    public ArrayList<Integer> R1 = new ArrayList<>();
-    public ArrayList<Integer> R2 = new ArrayList<>();
-    public ArrayList<Integer> R3 = new ArrayList<>();
-    public ArrayList<Integer> R4 = new ArrayList<>();
-    public ArrayList<Integer> R5 = new ArrayList<>();
-    public ArrayList<Integer> R6 = new ArrayList<>();
-    public ArrayList<Integer> R7 = new ArrayList<>();
-    public ArrayList<Integer> R8 = new ArrayList<>();
-    public ArrayList<Integer> R9 = new ArrayList<>();
-    public ArrayList<Integer> R10 = new ArrayList<>();
-    public ArrayList<Integer> R11 = new ArrayList<>();
-    public ArrayList<Integer> R12 = new ArrayList<>();
-    public ArrayList<Integer> R13 = new ArrayList<>();
-    public ArrayList<Integer> R14 = new ArrayList<>();
-    public ArrayList<Integer> R15 = new ArrayList<>();
-    public ArrayList<Integer> R16 = new ArrayList<>();
+    public static ArrayList<Integer> R0 = new ArrayList<>();
+    public static ArrayList<Integer> R1 = new ArrayList<>();
+    public static ArrayList<Integer> R2 = new ArrayList<>();
+    public static ArrayList<Integer> R3 = new ArrayList<>();
+    public static ArrayList<Integer> R4 = new ArrayList<>();
+    public static ArrayList<Integer> R5 = new ArrayList<>();
+    public static ArrayList<Integer> R6 = new ArrayList<>();
+    public static ArrayList<Integer> R7 = new ArrayList<>();
+    public static ArrayList<Integer> R8 = new ArrayList<>();
+    public static ArrayList<Integer> R9 = new ArrayList<>();
+    public static ArrayList<Integer> R10 = new ArrayList<>();
+    public static ArrayList<Integer> R11 = new ArrayList<>();
+    public static ArrayList<Integer> R12 = new ArrayList<>();
+    public static ArrayList<Integer> R13 = new ArrayList<>();
+    public static ArrayList<Integer> R14 = new ArrayList<>();
+    public static ArrayList<Integer> R15 = new ArrayList<>();
+    public static ArrayList<Integer> R16 = new ArrayList<>();
     
     //Arrays de la expansion de las cadenas Ri
-    public ArrayList<Integer> E1 = new ArrayList<>();
-    public ArrayList<Integer> E2 = new ArrayList<>();
-    public ArrayList<Integer> E3 = new ArrayList<>();
-    public ArrayList<Integer> E4 = new ArrayList<>();
-    public ArrayList<Integer> E5 = new ArrayList<>();
-    public ArrayList<Integer> E6 = new ArrayList<>();
-    public ArrayList<Integer> E7 = new ArrayList<>();
-    public ArrayList<Integer> E8 = new ArrayList<>();
-    public ArrayList<Integer> E9 = new ArrayList<>();
-    public ArrayList<Integer> E10 = new ArrayList<>();
-    public ArrayList<Integer> E11 = new ArrayList<>();
-    public ArrayList<Integer> E12 = new ArrayList<>();
-    public ArrayList<Integer> E13 = new ArrayList<>();
-    public ArrayList<Integer> E14 = new ArrayList<>();
-    public ArrayList<Integer> E15 = new ArrayList<>();
-    public ArrayList<Integer> E16 = new ArrayList<>();
+    public static ArrayList<Integer> E1 = new ArrayList<>();
+    public static ArrayList<Integer> E2 = new ArrayList<>();
+    public static ArrayList<Integer> E3 = new ArrayList<>();
+    public static ArrayList<Integer> E4 = new ArrayList<>();
+    public static ArrayList<Integer> E5 = new ArrayList<>();
+    public static ArrayList<Integer> E6 = new ArrayList<>();
+    public static ArrayList<Integer> E7 = new ArrayList<>();
+    public static ArrayList<Integer> E8 = new ArrayList<>();
+    public static ArrayList<Integer> E9 = new ArrayList<>();
+    public static ArrayList<Integer> E10 = new ArrayList<>();
+    public static ArrayList<Integer> E11 = new ArrayList<>();
+    public static ArrayList<Integer> E12 = new ArrayList<>();
+    public static ArrayList<Integer> E13 = new ArrayList<>();
+    public static ArrayList<Integer> E14 = new ArrayList<>();
+    public static ArrayList<Integer> E15 = new ArrayList<>();
+    public static ArrayList<Integer> E16 = new ArrayList<>();
     
      //Creacion de los S-Box
     public String [][] S_B1 = new String [4][16];
@@ -104,7 +104,7 @@ public class Cifrar {
         ArrayList<Integer> bloquesC = new ArrayList<Integer>();
         //creacion del objeto que contiene las llaves
         crearLlaves = new CrearLlaves(llave);
-        ConvertHexa convertBits = new ConvertHexa(texto);
+        ConvertBits convertBits = new ConvertBits(texto);
         text = convertBits.getBits();
         if (text.size() > 64){
             Iterator<Integer> nombreIterator = text.iterator();
@@ -113,12 +113,7 @@ public class Cifrar {
                 Integer elemento = nombreIterator.next();
                 bloquesC.add(elemento);
                 contador++;
-                System.out.println("contador  "+contador);
                 if((contador%64)==0||!nombreIterator.hasNext()){
-
-                    //System.out.println("output  "+outputString);
-                    //System.out.println("output  "+binarioADecimal(outputString));
-                    System.out.println("bloquesC: " + bloquesC);
                     cifrarTextos64(bloquesC, llave);
                     //System.out.println("output  "+mensajeCifrado);
                     bloquesC.clear();
@@ -343,12 +338,9 @@ public class Cifrar {
         L1 = R0;
         E1 = expansion(R0);
         R1 = XOR(L0, innerFunction(XOR(crearLlaves.k1, E1)));
-        System.out.println("R1: "+R1);
         L2 = R1;
         E2 = expansion(R1);
         R2 = XOR(L1, innerFunction(XOR(crearLlaves.k2, E2)));
-        System.out.println(R2);
-        System.out.println("R2: "+R2);
         L3 = R2;
         E3 = expansion(R2);
         R3 = XOR(L2, innerFunction(XOR(crearLlaves.k3, E3)));

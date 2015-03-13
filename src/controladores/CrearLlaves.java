@@ -16,63 +16,63 @@ public class CrearLlaves {
     public String llave;
     private ArrayList<Integer> key;
     
-    private ArrayList<Integer> keyP;    //k' con PC-1
+    public static ArrayList<Integer> keyP;    //k' con PC-1
     
     //Partes izquierdas de las 16 llaves
-    public ArrayList<Integer> c0 = new ArrayList<>();
-    public ArrayList<Integer> c1 = new ArrayList<>();
-    public ArrayList<Integer> c2 = new ArrayList<>();
-    public ArrayList<Integer> c3 = new ArrayList<>();
-    public ArrayList<Integer> c4 = new ArrayList<>();
-    public ArrayList<Integer> c5 = new ArrayList<>();
-    public ArrayList<Integer> c6 = new ArrayList<>();
-    public ArrayList<Integer> c7 = new ArrayList<>();
-    public ArrayList<Integer> c8 = new ArrayList<>();
-    public ArrayList<Integer> c9 = new ArrayList<>();
-    public ArrayList<Integer> c10 = new ArrayList<>();
-    public ArrayList<Integer> c11 = new ArrayList<>();
-    public ArrayList<Integer> c12 = new ArrayList<>();
-    public ArrayList<Integer> c13 = new ArrayList<>();
-    public ArrayList<Integer> c14 = new ArrayList<>();
-    public ArrayList<Integer> c15 = new ArrayList<>();
-    public ArrayList<Integer> c16 = new ArrayList<>();
+    public static ArrayList<Integer> c0 = new ArrayList<>();
+    public static ArrayList<Integer> c1 = new ArrayList<>();
+    public static ArrayList<Integer> c2 = new ArrayList<>();
+    public static ArrayList<Integer> c3 = new ArrayList<>();
+    public static ArrayList<Integer> c4 = new ArrayList<>();
+    public static ArrayList<Integer> c5 = new ArrayList<>();
+    public static ArrayList<Integer> c6 = new ArrayList<>();
+    public static ArrayList<Integer> c7 = new ArrayList<>();
+    public static ArrayList<Integer> c8 = new ArrayList<>();
+    public static ArrayList<Integer> c9 = new ArrayList<>();
+    public static ArrayList<Integer> c10 = new ArrayList<>();
+    public static ArrayList<Integer> c11 = new ArrayList<>();
+    public static ArrayList<Integer> c12 = new ArrayList<>();
+    public static ArrayList<Integer> c13 = new ArrayList<>();
+    public static ArrayList<Integer> c14 = new ArrayList<>();
+    public static ArrayList<Integer> c15 = new ArrayList<>();
+    public static ArrayList<Integer> c16 = new ArrayList<>();
     
     //Partes derechas de las 16 llaves
-    public ArrayList<Integer> d0 = new ArrayList<>();
-    public ArrayList<Integer> d1 = new ArrayList<>();
-    public ArrayList<Integer> d2 = new ArrayList<>();
-    public ArrayList<Integer> d3 = new ArrayList<>();
-    public ArrayList<Integer> d4 = new ArrayList<>();
-    public ArrayList<Integer> d5 = new ArrayList<>();
-    public ArrayList<Integer> d6 = new ArrayList<>();
-    public ArrayList<Integer> d7 = new ArrayList<>();
-    public ArrayList<Integer> d8 = new ArrayList<>();
-    public ArrayList<Integer> d9 = new ArrayList<>();
-    public ArrayList<Integer> d10 = new ArrayList<>();
-    public ArrayList<Integer> d11 = new ArrayList<>();
-    public ArrayList<Integer> d12 = new ArrayList<>();
-    public ArrayList<Integer> d13 = new ArrayList<>();
-    public ArrayList<Integer> d14 = new ArrayList<>();
-    public ArrayList<Integer> d15 = new ArrayList<>();
-    public ArrayList<Integer> d16 = new ArrayList<>();
+    public static ArrayList<Integer> d0 = new ArrayList<>();
+    public static ArrayList<Integer> d1 = new ArrayList<>();
+    public static ArrayList<Integer> d2 = new ArrayList<>();
+    public static ArrayList<Integer> d3 = new ArrayList<>();
+    public static ArrayList<Integer> d4 = new ArrayList<>();
+    public static ArrayList<Integer> d5 = new ArrayList<>();
+    public static ArrayList<Integer> d6 = new ArrayList<>();
+    public static ArrayList<Integer> d7 = new ArrayList<>();
+    public static ArrayList<Integer> d8 = new ArrayList<>();
+    public static ArrayList<Integer> d9 = new ArrayList<>();
+    public static ArrayList<Integer> d10 = new ArrayList<>();
+    public static ArrayList<Integer> d11 = new ArrayList<>();
+    public static ArrayList<Integer> d12 = new ArrayList<>();
+    public static ArrayList<Integer> d13 = new ArrayList<>();
+    public static ArrayList<Integer> d14 = new ArrayList<>();
+    public static ArrayList<Integer> d15 = new ArrayList<>();
+    public static ArrayList<Integer> d16 = new ArrayList<>();
     
     //16 Llaves finales
-    public ArrayList<Integer> k1 = new ArrayList<>();
-    public ArrayList<Integer> k2 = new ArrayList<>();
-    public ArrayList<Integer> k3 = new ArrayList<>();
-    public ArrayList<Integer> k4 = new ArrayList<>();
-    public ArrayList<Integer> k5 = new ArrayList<>();
-    public ArrayList<Integer> k6 = new ArrayList<>();
-    public ArrayList<Integer> k7 = new ArrayList<>();
-    public ArrayList<Integer> k8 = new ArrayList<>();
-    public ArrayList<Integer> k9 = new ArrayList<>();
-    public ArrayList<Integer> k10 = new ArrayList<>();
-    public ArrayList<Integer> k11 = new ArrayList<>();
-    public ArrayList<Integer> k12 = new ArrayList<>();
-    public ArrayList<Integer> k13 = new ArrayList<>();
-    public ArrayList<Integer> k14 = new ArrayList<>();
-    public ArrayList<Integer> k15 = new ArrayList<>();
-    public ArrayList<Integer> k16 = new ArrayList<>();
+    public static ArrayList<Integer> k1 = new ArrayList<>();
+    public static ArrayList<Integer> k2 = new ArrayList<>();
+    public static ArrayList<Integer> k3 = new ArrayList<>();
+    public static ArrayList<Integer> k4 = new ArrayList<>();
+    public static ArrayList<Integer> k5 = new ArrayList<>();
+    public static ArrayList<Integer> k6 = new ArrayList<>();
+    public static ArrayList<Integer> k7 = new ArrayList<>();
+    public static ArrayList<Integer> k8 = new ArrayList<>();
+    public static ArrayList<Integer> k9 = new ArrayList<>();
+    public static ArrayList<Integer> k10 = new ArrayList<>();
+    public static ArrayList<Integer> k11 = new ArrayList<>();
+    public static ArrayList<Integer> k12 = new ArrayList<>();
+    public static ArrayList<Integer> k13 = new ArrayList<>();
+    public static ArrayList<Integer> k14 = new ArrayList<>();
+    public static ArrayList<Integer> k15 = new ArrayList<>();
+    public static ArrayList<Integer> k16 = new ArrayList<>();
     
     public CrearLlaves(String llave){
         this.llave = llave;
