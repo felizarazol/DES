@@ -18,71 +18,71 @@ public class Cifrar {
     private String texto;
     private String llave;
     
-    public CrearLlaves crearLlaves;
+    public static CrearLlaves crearLlaves;
     
     private ArrayList<Integer> text = new ArrayList();
     
     //Array para la funcion IP
-    public ArrayList<Integer> bloqueIP;
+    public static ArrayList<Integer> bloqueIP;
     
     //Array para la funcion inversa de IP
-    public ArrayList<Integer> cyphertext;
+    public static ArrayList<Integer> cyphertext;
     
     //Arrays para almacenar el lado izquierdo del mensaje
-    public ArrayList<Integer> L0 = new ArrayList<>();
-    public ArrayList<Integer> L1 = new ArrayList<>();
-    public ArrayList<Integer> L2 = new ArrayList<>();
-    public ArrayList<Integer> L3 = new ArrayList<>();
-    public ArrayList<Integer> L4 = new ArrayList<>();
-    public ArrayList<Integer> L5 = new ArrayList<>();
-    public ArrayList<Integer> L6 = new ArrayList<>();
-    public ArrayList<Integer> L7 = new ArrayList<>();
-    public ArrayList<Integer> L8 = new ArrayList<>();
-    public ArrayList<Integer> L9 = new ArrayList<>();
-    public ArrayList<Integer> L10 = new ArrayList<>();
-    public ArrayList<Integer> L11 = new ArrayList<>();
-    public ArrayList<Integer> L12 = new ArrayList<>();
-    public ArrayList<Integer> L13 = new ArrayList<>();
-    public ArrayList<Integer> L14 = new ArrayList<>();
-    public ArrayList<Integer> L15 = new ArrayList<>();
-    public ArrayList<Integer> L16 = new ArrayList<>();
+    public static ArrayList<Integer> L0 = new ArrayList<>();
+    public static ArrayList<Integer> L1 = new ArrayList<>();
+    public static ArrayList<Integer> L2 = new ArrayList<>();
+    public static ArrayList<Integer> L3 = new ArrayList<>();
+    public static ArrayList<Integer> L4 = new ArrayList<>();
+    public static ArrayList<Integer> L5 = new ArrayList<>();
+    public static ArrayList<Integer> L6 = new ArrayList<>();
+    public static ArrayList<Integer> L7 = new ArrayList<>();
+    public static ArrayList<Integer> L8 = new ArrayList<>();
+    public static ArrayList<Integer> L9 = new ArrayList<>();
+    public static ArrayList<Integer> L10 = new ArrayList<>();
+    public static ArrayList<Integer> L11 = new ArrayList<>();
+    public static ArrayList<Integer> L12 = new ArrayList<>();
+    public static ArrayList<Integer> L13 = new ArrayList<>();
+    public static ArrayList<Integer> L14 = new ArrayList<>();
+    public static ArrayList<Integer> L15 = new ArrayList<>();
+    public static ArrayList<Integer> L16 = new ArrayList<>();
     
     //Arrays para almacenar el lado derecho del mensaje
-    public ArrayList<Integer> R0 = new ArrayList<>();
-    public ArrayList<Integer> R1 = new ArrayList<>();
-    public ArrayList<Integer> R2 = new ArrayList<>();
-    public ArrayList<Integer> R3 = new ArrayList<>();
-    public ArrayList<Integer> R4 = new ArrayList<>();
-    public ArrayList<Integer> R5 = new ArrayList<>();
-    public ArrayList<Integer> R6 = new ArrayList<>();
-    public ArrayList<Integer> R7 = new ArrayList<>();
-    public ArrayList<Integer> R8 = new ArrayList<>();
-    public ArrayList<Integer> R9 = new ArrayList<>();
-    public ArrayList<Integer> R10 = new ArrayList<>();
-    public ArrayList<Integer> R11 = new ArrayList<>();
-    public ArrayList<Integer> R12 = new ArrayList<>();
-    public ArrayList<Integer> R13 = new ArrayList<>();
-    public ArrayList<Integer> R14 = new ArrayList<>();
-    public ArrayList<Integer> R15 = new ArrayList<>();
-    public ArrayList<Integer> R16 = new ArrayList<>();
+    public static ArrayList<Integer> R0 = new ArrayList<>();
+    public static ArrayList<Integer> R1 = new ArrayList<>();
+    public static ArrayList<Integer> R2 = new ArrayList<>();
+    public static ArrayList<Integer> R3 = new ArrayList<>();
+    public static ArrayList<Integer> R4 = new ArrayList<>();
+    public static ArrayList<Integer> R5 = new ArrayList<>();
+    public static ArrayList<Integer> R6 = new ArrayList<>();
+    public static ArrayList<Integer> R7 = new ArrayList<>();
+    public static ArrayList<Integer> R8 = new ArrayList<>();
+    public static ArrayList<Integer> R9 = new ArrayList<>();
+    public static ArrayList<Integer> R10 = new ArrayList<>();
+    public static ArrayList<Integer> R11 = new ArrayList<>();
+    public static ArrayList<Integer> R12 = new ArrayList<>();
+    public static ArrayList<Integer> R13 = new ArrayList<>();
+    public static ArrayList<Integer> R14 = new ArrayList<>();
+    public static ArrayList<Integer> R15 = new ArrayList<>();
+    public static ArrayList<Integer> R16 = new ArrayList<>();
     
     //Arrays de la expansion de las cadenas Ri
-    public ArrayList<Integer> E1 = new ArrayList<>();
-    public ArrayList<Integer> E2 = new ArrayList<>();
-    public ArrayList<Integer> E3 = new ArrayList<>();
-    public ArrayList<Integer> E4 = new ArrayList<>();
-    public ArrayList<Integer> E5 = new ArrayList<>();
-    public ArrayList<Integer> E6 = new ArrayList<>();
-    public ArrayList<Integer> E7 = new ArrayList<>();
-    public ArrayList<Integer> E8 = new ArrayList<>();
-    public ArrayList<Integer> E9 = new ArrayList<>();
-    public ArrayList<Integer> E10 = new ArrayList<>();
-    public ArrayList<Integer> E11 = new ArrayList<>();
-    public ArrayList<Integer> E12 = new ArrayList<>();
-    public ArrayList<Integer> E13 = new ArrayList<>();
-    public ArrayList<Integer> E14 = new ArrayList<>();
-    public ArrayList<Integer> E15 = new ArrayList<>();
-    public ArrayList<Integer> E16 = new ArrayList<>();
+    public static ArrayList<Integer> E1 = new ArrayList<>();
+    public static ArrayList<Integer> E2 = new ArrayList<>();
+    public static ArrayList<Integer> E3 = new ArrayList<>();
+    public static ArrayList<Integer> E4 = new ArrayList<>();
+    public static ArrayList<Integer> E5 = new ArrayList<>();
+    public static ArrayList<Integer> E6 = new ArrayList<>();
+    public static ArrayList<Integer> E7 = new ArrayList<>();
+    public static ArrayList<Integer> E8 = new ArrayList<>();
+    public static ArrayList<Integer> E9 = new ArrayList<>();
+    public static ArrayList<Integer> E10 = new ArrayList<>();
+    public static ArrayList<Integer> E11 = new ArrayList<>();
+    public static ArrayList<Integer> E12 = new ArrayList<>();
+    public static ArrayList<Integer> E13 = new ArrayList<>();
+    public static ArrayList<Integer> E14 = new ArrayList<>();
+    public static ArrayList<Integer> E15 = new ArrayList<>();
+    public static ArrayList<Integer> E16 = new ArrayList<>();
     
      //Creacion de los S-Box
     public String [][] S_B1 = new String [4][16];
@@ -104,7 +104,7 @@ public class Cifrar {
         ArrayList<Integer> bloquesC = new ArrayList<Integer>();
         //creacion del objeto que contiene las llaves
         crearLlaves = new CrearLlaves(llave);
-        ConvertHexa convertBits = new ConvertHexa(texto);
+        ConvertBits convertBits = new ConvertBits(texto);
         text = convertBits.getBits();
         if (text.size() > 64){
             Iterator<Integer> nombreIterator = text.iterator();
@@ -113,12 +113,7 @@ public class Cifrar {
                 Integer elemento = nombreIterator.next();
                 bloquesC.add(elemento);
                 contador++;
-                System.out.println("contador  "+contador);
                 if((contador%64)==0||!nombreIterator.hasNext()){
-
-                    //System.out.println("output  "+outputString);
-                    //System.out.println("output  "+binarioADecimal(outputString));
-                    System.out.println("bloquesC: " + bloquesC);
                     cifrarTextos64(bloquesC, llave);
                     //System.out.println("output  "+mensajeCifrado);
                     bloquesC.clear();
@@ -267,6 +262,7 @@ public class Cifrar {
         bloqueIP.add(bloque.get(7-1));
         
     }
+    
     private void IPinv (ArrayList<Integer> bloqueIzq, ArrayList<Integer> bloqueDer){
         ArrayList<Integer> bloque = new ArrayList<>();
         bloque.addAll(bloqueIzq);
@@ -342,11 +338,9 @@ public class Cifrar {
         L1 = R0;
         E1 = expansion(R0);
         R1 = XOR(L0, innerFunction(XOR(crearLlaves.k1, E1)));
-        System.out.println("R1: "+R1);
         L2 = R1;
         E2 = expansion(R1);
         R2 = XOR(L1, innerFunction(XOR(crearLlaves.k2, E2)));
-        System.out.println("R2: "+R2);
         L3 = R2;
         E3 = expansion(R2);
         R3 = XOR(L2, innerFunction(XOR(crearLlaves.k3, E3)));
@@ -505,280 +499,280 @@ public class Cifrar {
     private void iniciarS_Box(){
         
         //Primera tabla
-        S_B1[0][0] = "1110";
-        S_B1[0][1] = "0100";
-        S_B1[0][2] = "1101";
-        S_B1[0][3] = "0001";
-        S_B1[0][4] = "0010";
-        S_B1[0][5] = "1111";
-        S_B1[0][6] = "1011";
-        S_B1[0][7] = "1000";
-        S_B1[0][8] = "1001";
-        S_B1[0][9] = "1010";
-        S_B1[0][10] = "0110";
-        S_B1[0][11] = "1100";
-        S_B1[0][12] = "0101";
-        S_B1[0][13] = "1001";
-        S_B1[0][14] = "0000";
-        S_B1[0][15] = "0111";
+        S_B1[0][0] = "1110";//14
+        S_B1[0][1] = "0100";//4
+        S_B1[0][2] = "1101";//13
+        S_B1[0][3] = "0001";//1
+        S_B1[0][4] = "0010";//2
+        S_B1[0][5] = "1111";//15
+        S_B1[0][6] = "1011";//11
+        S_B1[0][7] = "1000";//8
+        S_B1[0][8] = "0011";//3
+        S_B1[0][9] = "1010";//10
+        S_B1[0][10] = "0110";//6
+        S_B1[0][11] = "1100";//12
+        S_B1[0][12] = "0101";//5
+        S_B1[0][13] = "1001";//9
+        S_B1[0][14] = "0000";//0
+        S_B1[0][15] = "0111";//7
         
-        S_B1[1][0] = "0000";
-        S_B1[1][1] = "1111";
-        S_B1[1][2] = "0111";
-        S_B1[1][3] = "0100";
-        S_B1[1][4] = "1110";
-        S_B1[1][5] = "0010";
-        S_B1[1][6] = "1101";
-        S_B1[1][7] = "0001";
-        S_B1[1][8] = "1010";
-        S_B1[1][9] = "0110";
-        S_B1[1][10] = "1100";
-        S_B1[1][11] = "1011";
-        S_B1[1][12] = "1001";
-        S_B1[1][13] = "0101";
-        S_B1[1][14] = "0011";
-        S_B1[1][15] = "1000";
+        S_B1[1][0] = "0000";//0
+        S_B1[1][1] = "1111";//15
+        S_B1[1][2] = "0111";//7
+        S_B1[1][3] = "0100";//4
+        S_B1[1][4] = "1110";//14
+        S_B1[1][5] = "0010";//2
+        S_B1[1][6] = "1101";//13
+        S_B1[1][7] = "0001";//1
+        S_B1[1][8] = "1010";//10
+        S_B1[1][9] = "0110";//6
+        S_B1[1][10] = "1100";//12
+        S_B1[1][11] = "1011";//11
+        S_B1[1][12] = "1001";//9
+        S_B1[1][13] = "0101";//5
+        S_B1[1][14] = "0011";//3
+        S_B1[1][15] = "1000";//8
         
-        S_B1[2][0] = "0100";
-        S_B1[2][1] = "0001";
-        S_B1[2][2] = "1110";
-        S_B1[2][3] = "1000";
-        S_B1[2][4] = "1101";
-        S_B1[2][5] = "0110";
-        S_B1[2][6] = "0010";
-        S_B1[2][7] = "1011";
-        S_B1[2][8] = "1111";
-        S_B1[2][9] = "1100";
-        S_B1[2][10] = "1001";
-        S_B1[2][11] = "0111";
-        S_B1[2][12] = "0011";
-        S_B1[2][13] = "1010";
-        S_B1[2][14] = "0101";
-        S_B1[2][15] = "0000";
+        S_B1[2][0] = "0100";//4
+        S_B1[2][1] = "0001";//1
+        S_B1[2][2] = "1110";//14
+        S_B1[2][3] = "1000";//8
+        S_B1[2][4] = "1101";//13
+        S_B1[2][5] = "0110";//6
+        S_B1[2][6] = "0010";//2
+        S_B1[2][7] = "1011";//11
+        S_B1[2][8] = "1111";//15
+        S_B1[2][9] = "1100";//12
+        S_B1[2][10] = "1001";//9
+        S_B1[2][11] = "0111";//7
+        S_B1[2][12] = "0011";//3
+        S_B1[2][13] = "1010";//10
+        S_B1[2][14] = "0101";//5
+        S_B1[2][15] = "0000";//0
         
-        S_B1[3][0] = "1111";
-        S_B1[3][1] = "1100";
-        S_B1[3][2] = "1000";
-        S_B1[3][3] = "0010";
-        S_B1[3][4] = "0100";
-        S_B1[3][5] = "1001";
-        S_B1[3][6] = "0001";
-        S_B1[3][7] = "0111";
-        S_B1[3][8] = "0101";
-        S_B1[3][9] = "1011";
-        S_B1[3][10] = "0011";
-        S_B1[3][11] = "1110";
-        S_B1[3][12] = "1010";
-        S_B1[3][13] = "0000";
-        S_B1[3][14] = "0110";
-        S_B1[3][15] = "1101";
+        S_B1[3][0] = "1111";//15
+        S_B1[3][1] = "1100";//12
+        S_B1[3][2] = "1000";//8
+        S_B1[3][3] = "0010";//2
+        S_B1[3][4] = "0100";//4
+        S_B1[3][5] = "1001";//9
+        S_B1[3][6] = "0001";//1
+        S_B1[3][7] = "0111";//7
+        S_B1[3][8] = "0101";//5
+        S_B1[3][9] = "1011";//11
+        S_B1[3][10] = "0011";//3
+        S_B1[3][11] = "1110";//14
+        S_B1[3][12] = "1010";//10
+        S_B1[3][13] = "0000";//0
+        S_B1[3][14] = "0110";//6
+        S_B1[3][15] = "1101";//13
                
         //Segunda tabla
-        S_B2[0][0] = "1111";
-        S_B2[0][1] = "0001";
-        S_B2[0][2] = "1000";
-        S_B2[0][3] = "1110";
-        S_B2[0][4] = "0110";
-        S_B2[0][5] = "1011";
-        S_B2[0][6] = "0011";
-        S_B2[0][7] = "0100";
-        S_B2[0][8] = "1001";
-        S_B2[0][9] = "0111";
-        S_B2[0][10] = "0010";
-        S_B2[0][11] = "1101";
-        S_B2[0][12] = "1100";
-        S_B2[0][13] = "0000";
-        S_B2[0][14] = "0101";
-        S_B2[0][15] = "1010";
+        S_B2[0][0] = "1111";//15
+        S_B2[0][1] = "0001";//1
+        S_B2[0][2] = "1000";//8
+        S_B2[0][3] = "1110";//14
+        S_B2[0][4] = "0110";//6
+        S_B2[0][5] = "1011";//11
+        S_B2[0][6] = "0011";//3
+        S_B2[0][7] = "0100";//4
+        S_B2[0][8] = "1001";//9
+        S_B2[0][9] = "0111";//7
+        S_B2[0][10] = "0010";//2
+        S_B2[0][11] = "1101";//13
+        S_B2[0][12] = "1100";//12
+        S_B2[0][13] = "0000";//0
+        S_B2[0][14] = "0101";//5
+        S_B2[0][15] = "1010";//10
         
-        S_B2[1][0] = "0011";
-        S_B2[1][1] = "1101";
-        S_B2[1][2] = "0100";
-        S_B2[1][3] = "0111";
-        S_B2[1][4] = "1111";
-        S_B2[1][5] = "0010";
-        S_B2[1][6] = "1000";
-        S_B2[1][7] = "1110";
-        S_B2[1][8] = "1100";
-        S_B2[1][9] = "0000";
-        S_B2[1][10] = "0001";
-        S_B2[1][11] = "1010";
-        S_B2[1][12] = "0110";
-        S_B2[1][13] = "1001";
-        S_B2[1][14] = "1011";
-        S_B2[1][15] = "0101";
+        S_B2[1][0] = "0011";//3
+        S_B2[1][1] = "1101";//13
+        S_B2[1][2] = "0100";//4
+        S_B2[1][3] = "0111";//7
+        S_B2[1][4] = "1111";//15
+        S_B2[1][5] = "0010";//2
+        S_B2[1][6] = "1000";//8
+        S_B2[1][7] = "1110";//14
+        S_B2[1][8] = "1100";//12
+        S_B2[1][9] = "0000";//0
+        S_B2[1][10] = "0001";//1
+        S_B2[1][11] = "1010";//10
+        S_B2[1][12] = "0110";//6
+        S_B2[1][13] = "1001";//9
+        S_B2[1][14] = "1011";//11
+        S_B2[1][15] = "0101";//5
         
-        S_B2[2][0] = "1111";
-        S_B2[2][1] = "0001";
-        S_B2[2][2] = "1000";
-        S_B2[2][3] = "1110";
-        S_B2[2][4] = "0110";
-        S_B2[2][5] = "1011";
-        S_B2[2][6] = "0011";
-        S_B2[2][7] = "0100";
-        S_B2[2][8] = "1001";
-        S_B2[2][9] = "0111";
-        S_B2[2][10] = "0010";
-        S_B2[2][11] = "1101";
-        S_B2[2][12] = "1100";
-        S_B2[2][13] = "0000";
-        S_B2[2][14] = "0101";
-        S_B2[2][15] = "1010";
+        S_B2[2][0] = "0000";//0
+        S_B2[2][1] = "1110";//14
+        S_B2[2][2] = "0111";//7
+        S_B2[2][3] = "1011";//11
+        S_B2[2][4] = "1010";//10
+        S_B2[2][5] = "0100";//4
+        S_B2[2][6] = "1101";//13
+        S_B2[2][7] = "0001";//1
+        S_B2[2][8] = "0101";//5
+        S_B2[2][9] = "1000";//8
+        S_B2[2][10] = "1100";//12
+        S_B2[2][11] = "0110";//6
+        S_B2[2][12] = "1001";//9
+        S_B2[2][13] = "0011";//3
+        S_B2[2][14] = "0010";//2
+        S_B2[2][15] = "1111";//15
         
-        S_B2[3][0] = "1101";
-        S_B2[3][1] = "1000";
-        S_B2[3][2] = "1010";
-        S_B2[3][3] = "0001";
-        S_B2[3][4] = "0011";
-        S_B2[3][5] = "1111";
-        S_B2[3][6] = "0100";
-        S_B2[3][7] = "0010";
-        S_B2[3][8] = "1011";
-        S_B2[3][9] = "0110";
-        S_B2[3][10] = "0111";
-        S_B2[3][11] = "1100";
-        S_B2[3][12] = "0000";
-        S_B2[3][13] = "0101";
-        S_B2[3][14] = "1110";
-        S_B2[3][15] = "1001";
+        S_B2[3][0] = "1101";//13
+        S_B2[3][1] = "1000";//8
+        S_B2[3][2] = "1010";//10
+        S_B2[3][3] = "0001";//1
+        S_B2[3][4] = "0011";//3
+        S_B2[3][5] = "1111";//15
+        S_B2[3][6] = "0100";//4
+        S_B2[3][7] = "0010";//2
+        S_B2[3][8] = "1011";//11
+        S_B2[3][9] = "0110";//6
+        S_B2[3][10] = "0111";//7
+        S_B2[3][11] = "1100";//12
+        S_B2[3][12] = "0000";//0
+        S_B2[3][13] = "0101";//5
+        S_B2[3][14] = "1110";//14
+        S_B2[3][15] = "1001";//9
         
         //Tercera tabla
-        S_B3[0][0] = "1010";
-        S_B3[0][1] = "0000";
-        S_B3[0][2] = "1001";
-        S_B3[0][3] = "1110";
-        S_B3[0][4] = "0110";
-        S_B3[0][5] = "0011";
-        S_B3[0][6] = "1111";
-        S_B3[0][7] = "0101";
-        S_B3[0][8] = "0001";
-        S_B3[0][9] = "1101";
-        S_B3[0][10] = "1100";
-        S_B3[0][11] = "0111";
-        S_B3[0][12] = "1011";
-        S_B3[0][13] = "0100";
-        S_B3[0][14] = "0010";
-        S_B3[0][15] = "1000";
+        S_B3[0][0] = "1010";//10
+        S_B3[0][1] = "0000";//0
+        S_B3[0][2] = "1001";//9
+        S_B3[0][3] = "1110";//14
+        S_B3[0][4] = "0110";//6
+        S_B3[0][5] = "0011";//3
+        S_B3[0][6] = "1111";//15
+        S_B3[0][7] = "0101";//5
+        S_B3[0][8] = "0001";//1
+        S_B3[0][9] = "1101";//13
+        S_B3[0][10] = "1100";//12
+        S_B3[0][11] = "0111";//7
+        S_B3[0][12] = "1011";//11
+        S_B3[0][13] = "0100";//4
+        S_B3[0][14] = "0010";//2
+        S_B3[0][15] = "1000";//8
         
-        S_B3[1][0] = "1101";
-        S_B3[1][1] = "0111";
-        S_B3[1][2] = "0000";
-        S_B3[1][3] = "1001";
-        S_B3[1][4] = "0011";
-        S_B3[1][5] = "1111";
-        S_B3[1][6] = "0110";
-        S_B3[1][7] = "1010";
-        S_B3[1][8] = "0010";
-        S_B3[1][9] = "1000";
-        S_B3[1][10] = "0101";
-        S_B3[1][11] = "1110";
-        S_B3[1][12] = "1100";
-        S_B3[1][13] = "1011";
-        S_B3[1][14] = "1111";
-        S_B3[1][15] = "0001";
+        S_B3[1][0] = "1101";//13
+        S_B3[1][1] = "0111";//7
+        S_B3[1][2] = "0000";//0
+        S_B3[1][3] = "1001";//9
+        S_B3[1][4] = "0011";//3
+        S_B3[1][5] = "100";//4
+        S_B3[1][6] = "0110";//6
+        S_B3[1][7] = "1010";//10
+        S_B3[1][8] = "0010";//2
+        S_B3[1][9] = "1000";//8
+        S_B3[1][10] = "0101";//5
+        S_B3[1][11] = "1110";//14
+        S_B3[1][12] = "1100";//12
+        S_B3[1][13] = "1011";//11
+        S_B3[1][14] = "1111";//15
+        S_B3[1][15] = "0001";//1
         
-        S_B3[2][0] = "1101";
-        S_B3[2][1] = "0110";
-        S_B3[2][2] = "0100";
-        S_B3[2][3] = "1001";
-        S_B3[2][4] = "1000";
-        S_B3[2][5] = "1111";
-        S_B3[2][6] = "0011";
-        S_B3[2][7] = "0000";
-        S_B3[2][8] = "1011";
-        S_B3[2][9] = "0001";
-        S_B3[2][10] = "0010";
-        S_B3[2][11] = "1100";
-        S_B3[2][12] = "0101";
-        S_B3[2][13] = "1010";
-        S_B3[2][14] = "1110";
-        S_B3[2][15] = "0111";
+        S_B3[2][0] = "1101";//13
+        S_B3[2][1] = "0110";//6
+        S_B3[2][2] = "0100";//4
+        S_B3[2][3] = "1001";//9
+        S_B3[2][4] = "1000";//8
+        S_B3[2][5] = "1111";//15
+        S_B3[2][6] = "0011";//3
+        S_B3[2][7] = "0000";//0
+        S_B3[2][8] = "1011";//11
+        S_B3[2][9] = "0001";//1
+        S_B3[2][10] = "0010";//2
+        S_B3[2][11] = "1100";//12
+        S_B3[2][12] = "0101";//5
+        S_B3[2][13] = "1010";//10
+        S_B3[2][14] = "1110";//14
+        S_B3[2][15] = "0111";//7
         
-        S_B3[3][0] = "0001";
-        S_B3[3][1] = "1010";
-        S_B3[3][2] = "1101";
-        S_B3[3][3] = "0000";
-        S_B3[3][4] = "0110";
-        S_B3[3][5] = "1001";
-        S_B3[3][6] = "1000";
-        S_B3[3][7] = "0111";
-        S_B3[3][8] = "0100";
-        S_B3[3][9] = "1111";
-        S_B3[3][10] = "1110";
-        S_B3[3][11] = "0011";
-        S_B3[3][12] = "1011";
-        S_B3[3][13] = "0101";
-        S_B3[3][14] = "0010";
-        S_B3[3][15] = "1100";
+        S_B3[3][0] = "0001";//1
+        S_B3[3][1] = "1010";//10
+        S_B3[3][2] = "1101";//13
+        S_B3[3][3] = "0000";//0
+        S_B3[3][4] = "0110";//6
+        S_B3[3][5] = "1001";//9
+        S_B3[3][6] = "1000";//8
+        S_B3[3][7] = "0111";//7
+        S_B3[3][8] = "0100";//4
+        S_B3[3][9] = "1111";//15
+        S_B3[3][10] = "1110";//14
+        S_B3[3][11] = "0011";//3
+        S_B3[3][12] = "1011";//11
+        S_B3[3][13] = "0101";//5
+        S_B3[3][14] = "0010";//2
+        S_B3[3][15] = "1100";//12
         
         //Cuarta tabla
-        S_B4[0][0] = "0111";
-        S_B4[0][1] = "1101";
-        S_B4[0][2] = "1110";
-        S_B4[0][3] = "0011";
-        S_B4[0][4] = "0000";
-        S_B4[0][5] = "0110";
-        S_B4[0][6] = "1001";
-        S_B4[0][7] = "1010";
-        S_B4[0][8] = "0001";
-        S_B4[0][9] = "0010";
-        S_B4[0][10] = "1000";
-        S_B4[0][11] = "0101";
-        S_B4[0][12] = "1011";
-        S_B4[0][13] = "1100";
-        S_B4[0][14] = "0100";
-        S_B4[0][15] = "1111";
+        S_B4[0][0] = "0111";//7
+        S_B4[0][1] = "1101";//13
+        S_B4[0][2] = "1110";//14
+        S_B4[0][3] = "0011";//3
+        S_B4[0][4] = "0000";//0
+        S_B4[0][5] = "0110";//6
+        S_B4[0][6] = "1001";//9
+        S_B4[0][7] = "1010";//10
+        S_B4[0][8] = "0001";//1
+        S_B4[0][9] = "0010";//2
+        S_B4[0][10] = "1000";//8
+        S_B4[0][11] = "0101";//5
+        S_B4[0][12] = "1011";//11
+        S_B4[0][13] = "1100";//12
+        S_B4[0][14] = "0100";//4
+        S_B4[0][15] = "1111";//15
         
-        S_B4[1][0] = "1101";
-        S_B4[1][1] = "1000";
-        S_B4[1][2] = "1011";
-        S_B4[1][3] = "0101";
-        S_B4[1][4] = "0110";
-        S_B4[1][5] = "1111";
-        S_B4[1][6] = "0000";
-        S_B4[1][7] = "0011";
-        S_B4[1][8] = "0100";
-        S_B4[1][9] = "0111";
-        S_B4[1][10] = "0010";
-        S_B4[1][11] = "1100";
-        S_B4[1][12] = "0001";
-        S_B4[1][13] = "1010";
-        S_B4[1][14] = "1110";
-        S_B4[1][15] = "1001";
+        S_B4[1][0] = "1101";//13
+        S_B4[1][1] = "1000";//8
+        S_B4[1][2] = "1011";//11
+        S_B4[1][3] = "0101";//5
+        S_B4[1][4] = "0110";//6
+        S_B4[1][5] = "1111";//15
+        S_B4[1][6] = "0000";//0
+        S_B4[1][7] = "0011";//3
+        S_B4[1][8] = "0100";//4
+        S_B4[1][9] = "0111";//7
+        S_B4[1][10] = "0010";//2
+        S_B4[1][11] = "1100";//12
+        S_B4[1][12] = "0001";//1
+        S_B4[1][13] = "1010";//10
+        S_B4[1][14] = "1110";//14
+        S_B4[1][15] = "1001";//9
         
-        S_B4[2][0] = "1010";
-        S_B4[2][1] = "0110";
-        S_B4[2][2] = "1001";
-        S_B4[2][3] = "0000";
-        S_B4[2][4] = "1100";
-        S_B4[2][5] = "1011";
-        S_B4[2][6] = "0111";
-        S_B4[2][7] = "1101";
-        S_B4[2][8] = "1111";
-        S_B4[2][9] = "0001";
-        S_B4[2][10] = "0011";
-        S_B4[2][11] = "1110";
-        S_B4[2][12] = "0101";
-        S_B4[2][13] = "0010";
-        S_B4[2][14] = "1000";
-        S_B4[2][15] = "0100";
+        S_B4[2][0] = "1010";//10
+        S_B4[2][1] = "0110";//6
+        S_B4[2][2] = "1001";//9
+        S_B4[2][3] = "0000";//0
+        S_B4[2][4] = "1100";//12
+        S_B4[2][5] = "1011";//11
+        S_B4[2][6] = "0111";//7
+        S_B4[2][7] = "1101";//13
+        S_B4[2][8] = "1111";//15
+        S_B4[2][9] = "0001";//1
+        S_B4[2][10] = "0011";//3
+        S_B4[2][11] = "1110";//14
+        S_B4[2][12] = "0101";//5
+        S_B4[2][13] = "0010";//2
+        S_B4[2][14] = "1000";//8
+        S_B4[2][15] = "0100";//4
         
-        S_B4[3][0] = "0011";
-        S_B4[3][1] = "1111";
-        S_B4[3][2] = "0000";
-        S_B4[3][3] = "0110";
-        S_B4[3][4] = "1010";
-        S_B4[3][5] = "0001";
-        S_B4[3][6] = "1101";
-        S_B4[3][7] = "1000";
-        S_B4[3][8] = "1001";
-        S_B4[3][9] = "0100";
-        S_B4[3][10] = "0101";
-        S_B4[3][11] = "1011";
-        S_B4[3][12] = "1100";
-        S_B4[3][13] = "0111";
-        S_B4[3][14] = "0010";
-        S_B4[3][15] = "1110";
+        S_B4[3][0] = "0011";//3
+        S_B4[3][1] = "1111";//15
+        S_B4[3][2] = "0000";//0
+        S_B4[3][3] = "0110";//6
+        S_B4[3][4] = "1010";//10
+        S_B4[3][5] = "0001";//1
+        S_B4[3][6] = "1101";//13
+        S_B4[3][7] = "1000";//8
+        S_B4[3][8] = "1001";//9
+        S_B4[3][9] = "0100";//4
+        S_B4[3][10] = "0101";//5
+        S_B4[3][11] = "1011";//11
+        S_B4[3][12] = "1100";//12
+        S_B4[3][13] = "0111";//7
+        S_B4[3][14] = "0010";//2
+        S_B4[3][15] = "1110";//14
         
         //Quinta Tabla 
         S_B5[0][0] = "0010";
