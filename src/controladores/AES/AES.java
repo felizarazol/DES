@@ -21,10 +21,10 @@ import java.util.Arrays;
  *  		character and signifies the end of a string anyways
  */
 public class AES {
-														// these are for 128-bit
-	private final int Nb = 4;							// Number of columns (32 bit words) comprising the state
-	private int Nk;					            		// Number of 32 bit words comprising the cipher key
-	private final int Nr;						// Number of rounds
+	// these are for 128-bit
+	private final int Nb = 4; // Number of columns (32 bit words) comprising the state
+	private int Nk;	// Number of 32 bit words comprising the cipher key
+	private final int Nr;	// Number of rounds
 	private SecureRandom rand = new SecureRandom();
 	private Key key;
 	private State state;
@@ -181,7 +181,7 @@ public class AES {
 //		else {
                 byte[] testBytes = Functions.hexStringToByteArray("414553206573206d757920666163696c");
 			
-                byte[] testKey = Functions.hexStringToByteArray("2b7e151628aed2a6abf7158809cf4f3c");
+                byte[] testKey = Functions.hexStringToByteArray("2B7e151628aed2a6abf7158809cf4f3c");
                 
                 aes = new AES(testKey);	
 //        }

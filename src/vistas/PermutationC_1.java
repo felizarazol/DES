@@ -19,6 +19,7 @@ public class PermutationC_1 extends javax.swing.JDialog {
     public PermutationC_1(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -42,25 +43,17 @@ public class PermutationC_1 extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("PC-1");
-        setMinimumSize(new java.awt.Dimension(200, 300));
-        setPreferredSize(new java.awt.Dimension(585, 240));
-        getContentPane().setLayout(null);
+        setMinimumSize(new java.awt.Dimension(670, 380));
+        setPreferredSize(new java.awt.Dimension(750, 430));
+        setResizable(false);
 
         jLabel1.setText("Llega la llave " + Principal.llave + " que se permuta con la siguiente tabla:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 11, 550, 14);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PC_1.png"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 46, 550, 50);
 
         jLabel3.setText(CrearLlaves.keyP.toString());
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 150, 550, 14);
 
         jLabel4.setText(CrearLlaves.c0.toString());
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 210, 550, 14);
 
         atras.setText("Atras");
         atras.addActionListener(new java.awt.event.ActionListener() {
@@ -68,24 +61,73 @@ public class PermutationC_1 extends javax.swing.JDialog {
                 atrasActionPerformed(evt);
             }
         });
-        getContentPane().add(atras);
-        atras.setBounds(250, 320, 59, 23);
 
         jLabel5.setText("Por lo que la salida queda:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 120, 450, 14);
 
         jLabel6.setText("Se generan dos partes: C0");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(10, 180, 300, 14);
 
         jLabel7.setText("D0");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(10, 240, 520, 14);
 
         jLabel8.setText(CrearLlaves.d0.toString());
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(10, 280, 540, 14);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(atras)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(jLabel1)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel2)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel5)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel3)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel6)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel4)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel7)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel8)
+                .addGap(26, 26, 26)
+                .addComponent(atras)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

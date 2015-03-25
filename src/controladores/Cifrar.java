@@ -22,6 +22,9 @@ public class Cifrar {
     
     private ArrayList<Integer> text = new ArrayList();
     
+    //Mensaje en bits original
+    public static ArrayList<Integer> bloque = new ArrayList<>();
+    
     //Array para la funcion IP
     public static ArrayList<Integer> bloqueIP;
     
@@ -94,7 +97,7 @@ public class Cifrar {
     public String [][] S_B7 = new String [4][16];
     public String [][] S_B8 = new String [4][16];
     
-    private String mensajeCifrado= new String("");
+    public static String mensajeCifrado= new String("");
     
     /*Este objeto cifra el mensaje a partir de las llaves ya creadas
     Falta crear la ultima permutacion, y revisar las excepciones*/
@@ -168,7 +171,7 @@ public class Cifrar {
     //Se crean bloques de 64 bits, para mensajeCifrados largos
     private void crearBloques(ArrayList<Integer> text){
         while (!text.isEmpty()) {
-            ArrayList<Integer> bloque = new ArrayList<>();
+            
             if (text.size() <= 64){
                 int dif = 64 - text.size();
                 for (int i = 0; i < dif; i++){
@@ -336,6 +339,7 @@ public class Cifrar {
     
     private void creacionSubcadenas(){
         L1 = R0;
+        //System.out.println("R0 = " + R0);
         E1 = expansion(R0);
         R1 = XOR(L0, innerFunction(XOR(crearLlaves.k1, E1)));
         L2 = R1;
