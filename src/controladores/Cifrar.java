@@ -16,7 +16,7 @@ import java.util.Iterator;
 public class Cifrar {
     
     private String texto;
-    private String llave;
+    public static String llave;
     
     public static CrearLlaves crearLlaves;
     

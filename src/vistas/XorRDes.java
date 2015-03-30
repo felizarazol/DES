@@ -155,7 +155,7 @@ public class XorRDes extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
      private void elegirStrings(){
-        switch(VistaCifrar.numeroR){
+        switch(VistaDescifrar.numeroR){
             case 1:
                 Ri = Descifrar.R0.toString();
                 fi = CrearLlaves.k1.toString();

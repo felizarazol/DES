@@ -10,14 +10,14 @@ package vistas;
  * @author estma_000
  */
 
-import controladores.Cifrar;
+import controladores.Descifrar;
 
-public class IP_1DES extends javax.swing.JDialog {
+public class IP_1DES_Des extends javax.swing.JDialog {
 
     /**
-     * Creates new form IP_1DES
+     * Creates new form IP_1DES_Des
      */
-    public IP_1DES(java.awt.Frame parent, boolean modal) {
+    public IP_1DES_Des(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -47,13 +47,13 @@ public class IP_1DES extends javax.swing.JDialog {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IP_1DES.PNG"))); // NOI18N
 
-        jLabel3.setText("Se recibe L = " + Cifrar.L16);
+        jLabel3.setText("Se recibe L = " + Descifrar.L16);
 
-        jLabel4.setText("R = " + Cifrar.R16);
+        jLabel4.setText("R = " + Descifrar.R16);
 
-        jLabel5.setText("Se concatenan las dos y se permutan. El resultado es el mensaje cifrado.");
+        jLabel5.setText("Se concatenan las dos y se permutan. El resultado es el mensaje descifrado.");
 
-        jLabel6.setText("C = " + Cifrar.cyphertext.toString());
+        jLabel6.setText("C = " + Descifrar.plaintext.toString());
 
         atras.setText("Atras");
         atras.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +71,7 @@ public class IP_1DES extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
@@ -99,7 +99,7 @@ public class IP_1DES extends javax.swing.JDialog {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(atras)
                 .addGap(38, 38, 38))
         );
@@ -146,20 +146,20 @@ public class IP_1DES extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IP_1DES.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IP_1DES_Des.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IP_1DES.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IP_1DES_Des.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IP_1DES.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IP_1DES_Des.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IP_1DES.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IP_1DES_Des.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                IP_1DES dialog = new IP_1DES(new javax.swing.JFrame(), true);
+                IP_1DES_Des dialog = new IP_1DES_Des(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

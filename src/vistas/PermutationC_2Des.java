@@ -5,17 +5,18 @@
  */
 package vistas;
 
-import controladores.CrearLlaves;
-import java.util.ArrayList;
-
 /**
  *
  * @author estma_000
  */
-public class PermutationC_2 extends javax.swing.JDialog {
+
+import controladores.CrearLlaves;
+import java.util.ArrayList;
+
+public class PermutationC_2Des extends javax.swing.JDialog {
 
     /**
-     * Creates new form PermutationC_2
+     * Creates new form PermutationC_2Des
      */
     
     private ArrayList<Integer> di;
@@ -23,7 +24,7 @@ public class PermutationC_2 extends javax.swing.JDialog {
     private ArrayList<Integer> ci;
     private ArrayList<Integer> ci1;
     
-    public PermutationC_2(java.awt.Frame parent, boolean modal) {
+    public PermutationC_2Des(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         elegirStrings();
         initComponents();
@@ -39,24 +40,15 @@ public class PermutationC_2 extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         atras = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("PC-2");
-        setPreferredSize(new java.awt.Dimension(815, 360));
-        setResizable(false);
-
-        jLabel1.setText("En la iteración " + VistaCifrar.numeroK + " se tiene:");
-
-        jLabel2.setText("Con ayuda de la siguiente permutacion se obtienen las siguientes partes de la llave");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PC_2.png"))); // NOI18N
 
         jLabel4.setText("La salida para C es " + ci1);
 
@@ -70,6 +62,12 @@ public class PermutationC_2 extends javax.swing.JDialog {
         jLabel5.setText("la salida para D es " + di1);
 
         jLabel6.setText("C = " + ci + " y D = " + di);
+
+        jLabel1.setText("En la iteración " + VistaDescifrar.numeroK + " se tiene:");
+
+        jLabel2.setText("Con ayuda de la siguiente permutacion se obtienen las siguientes partes de la llave");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PC_2.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,7 +86,7 @@ public class PermutationC_2 extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(236, 236, 236)
                                 .addComponent(atras)))
-                        .addGap(0, 208, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -109,7 +107,7 @@ public class PermutationC_2 extends javax.swing.JDialog {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(atras)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -137,20 +135,20 @@ public class PermutationC_2 extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PermutationC_2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PermutationC_2Des.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PermutationC_2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PermutationC_2Des.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PermutationC_2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PermutationC_2Des.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PermutationC_2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PermutationC_2Des.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                PermutationC_2 dialog = new PermutationC_2(new javax.swing.JFrame(), true);
+                PermutationC_2Des dialog = new PermutationC_2Des(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -171,8 +169,9 @@ public class PermutationC_2 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
+
     private void elegirStrings (){
-        switch(VistaCifrar.numeroK){
+        switch(VistaDescifrar.numeroK){
             case 1:
                 ci = CrearLlaves.c0;
                 ci1 = CrearLlaves.c1;

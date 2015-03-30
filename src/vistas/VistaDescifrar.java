@@ -6,6 +6,7 @@
 package vistas;
 
 import controladores.Descifrar;
+import controladores.ConvertToText;
 
 /**
  *
@@ -97,7 +98,8 @@ public class VistaDescifrar extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         atras = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Proceso Descifrado");
         setPreferredSize(new java.awt.Dimension(680, 730));
 
         R5.setText("R5");
@@ -466,7 +468,8 @@ public class VistaDescifrar extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("El texto cifrado es " + Descifrar.plaintext);
+        jLabel5.setText("El texto descifrado es " + ConvertToText.toText(Descifrar.plaintext)
+        );
 
         atras.setText("Atras");
         atras.addActionListener(new java.awt.event.ActionListener() {
@@ -606,7 +609,7 @@ public class VistaDescifrar extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(649, Short.MAX_VALUE)
+                .addContainerGap(676, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(atras))
@@ -714,7 +717,7 @@ public class VistaDescifrar extends javax.swing.JFrame {
                                     .addComponent(jLabel4)
                                     .addGap(26, 26, 26)
                                     .addComponent(ip_1)))))
-                    .addContainerGap(57, Short.MAX_VALUE)))
+                    .addContainerGap(84, Short.MAX_VALUE)))
         );
 
         pack();
@@ -783,7 +786,7 @@ public class VistaDescifrar extends javax.swing.JFrame {
     private void k9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k9ActionPerformed
         // TODO add your handling code here:
         numeroK = 9;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k9ActionPerformed
 
     private void R15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R15ActionPerformed
@@ -795,7 +798,7 @@ public class VistaDescifrar extends javax.swing.JFrame {
     private void k10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k10ActionPerformed
         // TODO add your handling code here:
         numeroK = 10;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k10ActionPerformed
 
     private void R16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R16ActionPerformed
@@ -807,47 +810,47 @@ public class VistaDescifrar extends javax.swing.JFrame {
     private void k11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k11ActionPerformed
         // TODO add your handling code here:
         numeroK = 11;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k11ActionPerformed
 
     private void iPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iPActionPerformed
         // TODO add your handling code here:
-        new IP_DES(this, true).setVisible(true);
+        new IP_DES_Des(this, true).setVisible(true);
     }//GEN-LAST:event_iPActionPerformed
 
     private void k12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k12ActionPerformed
         // TODO add your handling code here:
         numeroK = 12;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k12ActionPerformed
 
     private void k13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k13ActionPerformed
         // TODO add your handling code here:
         numeroK = 13;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k13ActionPerformed
 
     private void ip_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ip_1ActionPerformed
         // TODO add your handling code here:
-        new IP_1DES(this, true).setVisible(true);
+        new IP_1DES_Des(this, true).setVisible(true);
     }//GEN-LAST:event_ip_1ActionPerformed
 
     private void k14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k14ActionPerformed
         // TODO add your handling code here:
         numeroK = 14;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k14ActionPerformed
 
     private void k15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k15ActionPerformed
         // TODO add your handling code here:
         numeroK = 15;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k15ActionPerformed
 
     private void k16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k16ActionPerformed
         // TODO add your handling code here:
         numeroK = 16;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k16ActionPerformed
 
     private void PC_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PC_1ActionPerformed
@@ -858,145 +861,145 @@ public class VistaDescifrar extends javax.swing.JFrame {
     private void k1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k1ActionPerformed
         // TODO add your handling code here:
         numeroK = 1;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k1ActionPerformed
 
     private void k2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k2ActionPerformed
         // TODO add your handling code here:
         numeroK = 2;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k2ActionPerformed
 
     private void k3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k3ActionPerformed
         // TODO add your handling code here:
         numeroK = 3;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k3ActionPerformed
 
     private void k4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k4ActionPerformed
         // TODO add your handling code here:
         numeroK = 4;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k4ActionPerformed
 
     private void k5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k5ActionPerformed
         // TODO add your handling code here:
         numeroK = 5;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k5ActionPerformed
 
     private void k6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k6ActionPerformed
         // TODO add your handling code here:
         numeroK = 6;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k6ActionPerformed
 
     private void k7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k7ActionPerformed
         // TODO add your handling code here:
         numeroK = 7;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k7ActionPerformed
 
     private void k8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k8ActionPerformed
         // TODO add your handling code here:
         numeroK = 8;
-        new PermutationC_2(this, true).setVisible(true);
+        new PermutationC_2Des(this, true).setVisible(true);
     }//GEN-LAST:event_k8ActionPerformed
 
     private void f1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f1ActionPerformed
         // TODO add your handling code here:
         numeroF = 1;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f1ActionPerformed
 
     private void f2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f2ActionPerformed
         // TODO add your handling code here:
         numeroF = 2;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f2ActionPerformed
 
     private void f3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f3ActionPerformed
         // TODO add your handling code here:
         numeroF = 3;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f3ActionPerformed
 
     private void f4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f4ActionPerformed
         // TODO add your handling code here:
         numeroF = 4;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f4ActionPerformed
 
     private void f5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f5ActionPerformed
         // TODO add your handling code here:
         numeroF = 5;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f5ActionPerformed
 
     private void f6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f6ActionPerformed
         // TODO add your handling code here:
         numeroF = 6;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f6ActionPerformed
 
     private void f7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f7ActionPerformed
         // TODO add your handling code here:
         numeroF = 7;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f7ActionPerformed
 
     private void f8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f8ActionPerformed
         // TODO add your handling code here:
         numeroF = 8;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f8ActionPerformed
 
     private void f9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f9ActionPerformed
         // TODO add your handling code here:
         numeroF = 9;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f9ActionPerformed
 
     private void f10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f10ActionPerformed
         // TODO add your handling code here:
         numeroF = 10;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f10ActionPerformed
 
     private void f11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f11ActionPerformed
         // TODO add your handling code here:
         numeroF = 11;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f11ActionPerformed
 
     private void f12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f12ActionPerformed
         // TODO add your handling code here:
         numeroF = 12;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f12ActionPerformed
 
     private void f13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f13ActionPerformed
         // TODO add your handling code here:
         numeroF = 13;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f13ActionPerformed
 
     private void f14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f14ActionPerformed
         // TODO add your handling code here:
         numeroF = 14;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f14ActionPerformed
 
     private void f15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f15ActionPerformed
         // TODO add your handling code here:
         numeroF = 15;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f15ActionPerformed
 
     private void f16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f16ActionPerformed
         // TODO add your handling code here:
         numeroF = 16;
-        new InnerDES(this, true).setVisible(true);
+        new InnerDESDes(this, true).setVisible(true);
     }//GEN-LAST:event_f16ActionPerformed
 
     private void R1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1ActionPerformed
