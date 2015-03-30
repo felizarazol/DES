@@ -107,7 +107,7 @@ public class Cifrar {
         ArrayList<Integer> bloquesC = new ArrayList<Integer>();
         //creacion del objeto que contiene las llaves
         crearLlaves = new CrearLlaves(llave);
-        ConvertBits convertBits = new ConvertBits(texto);
+        ConvertHexa convertBits = new ConvertHexa(texto);
         text = convertBits.getBits();
         if (text.size() > 64){
             Iterator<Integer> nombreIterator = text.iterator();
@@ -149,7 +149,8 @@ public class Cifrar {
         }else{
             cifrarTextos64(text, llave);
         }
-        System.out.println(mensajeCifrado);
+        System.err.println(ConvertirBitsAHexa.convertirBitsHexa(cyphertext));
+        //System.out.println(mensajeCifrado);
     }
     
     private void cifrarTextos64(ArrayList<Integer> texto, String llave){

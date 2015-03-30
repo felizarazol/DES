@@ -7,6 +7,7 @@ package vistas;
 
 import controladores.Cifrar;
 import controladores.ConvertirBitsAHexa;
+import controladores.ConvertBits;
 import java.util.ArrayList;
 
 /**
@@ -27,6 +28,7 @@ public class VistaCifrar extends javax.swing.JFrame {
     
     public VistaCifrar() {
         cifrar = new Cifrar(Principal.texto, Principal.llave);
+        //System.err.println("Cifrado: " + ConvertirBitsAHexa.convertirBitsHexa(ConvertBits.));
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -1046,7 +1048,9 @@ public class VistaCifrar extends javax.swing.JFrame {
     private void desencriptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desencriptarActionPerformed
         // TODO add your handling code here:
         Principal.llave = Cifrar.llave;
+        System.err.println(Cifrar.llave);
         Principal.texto = ConvertirBitsAHexa.convertirBitsHexa(Cifrar.cyphertext);
+        System.err.println(ConvertirBitsAHexa.convertirBitsHexa(Cifrar.cyphertext));
         VistaDescifrar llavesYMensaje = new VistaDescifrar();
         this.setVisible(false);
         llavesYMensaje.setVisible(true);

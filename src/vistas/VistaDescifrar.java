@@ -7,6 +7,7 @@ package vistas;
 
 import controladores.Descifrar;
 import controladores.ConvertToText;
+import controladores.ConvertirBitsAHexa;
 
 /**
  *
@@ -22,11 +23,10 @@ public class VistaDescifrar extends javax.swing.JFrame {
     public static int numeroK = 0;
     public static int numeroR = 0;
     public static int numeroF = 0;
+    
     public VistaDescifrar() {
-        System.out.println(Principal.texto);
-        System.out.println(Principal.llave);
         descifrar = new Descifrar(Principal.texto, Principal.llave);
-        
+        System.err.println("Descifrado: " + ConvertirBitsAHexa.convertirBitsHexa(Descifrar.plaintext));
         initComponents();
         setLocationRelativeTo(null);
     }

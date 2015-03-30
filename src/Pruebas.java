@@ -1,4 +1,6 @@
 
+import controladores.Cifrar;
+import controladores.ConvertirBitsAHexa;
 import java.util.ArrayList;
 
 /*
@@ -18,6 +20,9 @@ public class Pruebas {
         Scanner sc = new Scanner(System.in);
         String text= sc.nextLine();
         String key= sc.nextLine();
+        Cifrar c = new Cifrar(text, key);
+//        text = ConvertirBitsAHexa
+        text= sc.nextLine();
         Descifrar d = new Descifrar(text, key);
         
         System.out.println("Directorio ejecucion = " + System.getProperty("user.dir"));
