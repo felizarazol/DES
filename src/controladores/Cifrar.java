@@ -162,9 +162,9 @@ public class Cifrar {
         creacionSubcadenas();
         //Se aplica la inversa de IP
         IPinv(R16, L16);
-        System.out.println("");
-        System.out.println("cypherTp"+cyphertext);
-        System.out.println("");
+//        System.out.println("");
+//        System.out.println("cypherTp"+cyphertext);
+//        System.out.println("");
         mensajeCifrado=mensajeCifrado+ConvertToText.toText(cyphertext);
         
     }
@@ -663,7 +663,7 @@ public class Cifrar {
         S_B3[1][2] = "0000";//0
         S_B3[1][3] = "1001";//9
         S_B3[1][4] = "0011";//3
-        S_B3[1][5] = "100";//4
+        S_B3[1][5] = "0100";//4
         S_B3[1][6] = "0110";//6
         S_B3[1][7] = "1010";//10
         S_B3[1][8] = "0010";//2

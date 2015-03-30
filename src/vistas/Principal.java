@@ -74,6 +74,11 @@ public class Principal extends javax.swing.JFrame {
         PedirLlave.setText("Ingrese la llave a usar:");
 
         Texto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        Texto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextoActionPerformed(evt);
+            }
+        });
 
         Cifrar.setText("Cifrar");
         Cifrar.addActionListener(new java.awt.event.ActionListener() {
@@ -325,21 +330,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CifrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CifrarActionPerformed
-        String valido = "0123456789ABCDEF";
-        String mensaje = "";
-        for (int i = 0; i < Llave.getText().length(); i++){
-            // En caso de que la llave no tenga los caracteres necesarios
-            if (valido.indexOf(Llave.getText().charAt(i)) == -1){
-                mensaje = "La llave no sirve. Pruebe una nueva";
-                break;
-            }
-        }
-        if (Llave.getText().isEmpty()){
-            mensaje = "No hay mensaje para encriptar";
-        }
-        if (Llave.getText().length() != 16){
-            mensaje = "La llave no tiene la longitud adecuada (16 números)";
-        }
+        String mensaje = validar(Texto.getText(), Llave.getText());
         // Se valida que no haya errores en los textos recibidos
         if (mensaje.isEmpty()){
              this.llave = Llave.getText();
@@ -361,6 +352,20 @@ public class Principal extends javax.swing.JFrame {
 
     private void DescifrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescifrarActionPerformed
         // TODO add your handling code here:
+        String mensaje = validar(TextoD.getText(), LlaveD.getText());
+        // Se valida que no haya errores en los textos recibidos
+        if (mensaje.isEmpty()){
+             this.llave = LlaveD.getText();
+             this.texto = TextoD.getText();
+             VistaDescifrar llavesYMensaje = new VistaDescifrar();
+             this.setVisible(false);
+             llavesYMensaje.setVisible(true);
+        }
+        else {
+            JOptionPane.showOptionDialog(null, mensaje, 
+                    "Error", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null, 
+                    new Object[]{" Aceptar "},"Aceptar");
+        }
     }//GEN-LAST:event_DescifrarActionPerformed
 
     private void Cifrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cifrar1ActionPerformed
@@ -374,6 +379,10 @@ public class Principal extends javax.swing.JFrame {
     private void Descifrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Descifrar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Descifrar1ActionPerformed
+
+    private void TextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -440,4 +449,24 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
+    
+    private String validar(String texto, String llave){
+        String valido = "0123456789ABCDEF";
+        String mensaje = "";
+        for (int i = 0; i < llave.length(); i++){
+            // En caso de que la llave no tenga los caracteres necesarios
+            if (valido.indexOf(llave.charAt(i)) == -1){
+                mensaje = "La llave no sirve. Pruebe una nueva";
+                break;
+            }
+        }
+        if (texto.isEmpty() || texto.length() > 16){
+            mensaje = "El mensaje no tiene la longitud adecuada (16 caracteres)";
+        }
+        if (llave.length() != 16){
+            System.out.println(llave.length());
+            mensaje = "La llave no tiene la longitud adecuada (16 números)";
+        }
+        return mensaje;
+    }
 }

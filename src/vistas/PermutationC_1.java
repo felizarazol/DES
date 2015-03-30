@@ -37,14 +37,12 @@ public class PermutationC_1 extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         atras = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("PC-1");
         setMinimumSize(new java.awt.Dimension(670, 380));
-        setPreferredSize(new java.awt.Dimension(750, 430));
+        setPreferredSize(new java.awt.Dimension(750, 300));
         setResizable(false);
 
         jLabel1.setText("Llega la llave " + Principal.llave + " que se permuta con la siguiente tabla:");
@@ -53,7 +51,7 @@ public class PermutationC_1 extends javax.swing.JDialog {
 
         jLabel3.setText(CrearLlaves.keyP.toString());
 
-        jLabel4.setText(CrearLlaves.c0.toString());
+        jLabel4.setText("Se generan dos partes: C0 = " + CrearLlaves.c0.toString());
 
         atras.setText("Atras");
         atras.addActionListener(new java.awt.event.ActionListener() {
@@ -64,11 +62,7 @@ public class PermutationC_1 extends javax.swing.JDialog {
 
         jLabel5.setText("Por lo que la salida queda:");
 
-        jLabel6.setText("Se generan dos partes: C0");
-
-        jLabel7.setText("D0");
-
-        jLabel8.setText(CrearLlaves.d0.toString());
+        jLabel8.setText("D0 = " + CrearLlaves.d0.toString());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,13 +81,7 @@ public class PermutationC_1 extends javax.swing.JDialog {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -116,17 +104,13 @@ public class PermutationC_1 extends javax.swing.JDialog {
                 .addComponent(jLabel5)
                 .addGap(16, 16, 16)
                 .addComponent(jLabel3)
-                .addGap(16, 16, 16)
-                .addComponent(jLabel6)
-                .addGap(16, 16, 16)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addGap(16, 16, 16)
-                .addComponent(jLabel7)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel8)
-                .addGap(26, 26, 26)
+                .addGap(27, 27, 27)
                 .addComponent(atras)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -186,8 +170,6 @@ public class PermutationC_1 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }
