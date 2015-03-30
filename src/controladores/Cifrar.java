@@ -149,8 +149,7 @@ public class Cifrar {
         }else{
             cifrarTextos64(text, llave);
         }
-        System.err.println(ConvertirBitsAHexa.convertirBitsHexa(cyphertext));
-        //System.out.println(mensajeCifrado);
+        
     }
     
     private void cifrarTextos64(ArrayList<Integer> texto, String llave){

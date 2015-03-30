@@ -96,7 +96,7 @@ public class VistaDescifrar extends javax.swing.JFrame {
         R3 = new javax.swing.JButton();
         R4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        atras = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Proceso Descifrado");
@@ -471,10 +471,10 @@ public class VistaDescifrar extends javax.swing.JFrame {
         jLabel5.setText("El texto descifrado es " + ConvertToText.toText(Descifrar.plaintext)
         );
 
-        atras.setText("Atras");
-        atras.addActionListener(new java.awt.event.ActionListener() {
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atrasActionPerformed(evt);
+                salirActionPerformed(evt);
             }
         });
 
@@ -486,7 +486,7 @@ public class VistaDescifrar extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 439, Short.MAX_VALUE)
-                .addComponent(atras, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -612,7 +612,7 @@ public class VistaDescifrar extends javax.swing.JFrame {
                 .addContainerGap(676, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(atras))
+                    .addComponent(salir))
                 .addGap(18, 18, 18))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -1026,11 +1026,10 @@ public class VistaDescifrar extends javax.swing.JFrame {
         new XorRDes(this, true).setVisible(true);
     }//GEN-LAST:event_R4ActionPerformed
 
-    private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        new Principal().setVisible(true);
-    }//GEN-LAST:event_atrasActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_salirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1085,7 +1084,6 @@ public class VistaDescifrar extends javax.swing.JFrame {
     private javax.swing.JButton R7;
     private javax.swing.JButton R8;
     private javax.swing.JButton R9;
-    private javax.swing.JButton atras;
     private javax.swing.JButton f1;
     private javax.swing.JButton f10;
     private javax.swing.JButton f11;
@@ -1125,5 +1123,6 @@ public class VistaDescifrar extends javax.swing.JFrame {
     private javax.swing.JButton k7;
     private javax.swing.JButton k8;
     private javax.swing.JButton k9;
+    private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }

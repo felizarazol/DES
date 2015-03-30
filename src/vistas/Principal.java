@@ -321,13 +321,18 @@ public class Principal extends javax.swing.JFrame {
                 mensaje = "La llave no sirve. Pruebe una nueva";
                 break;
             }
+            if (valido.indexOf(texto.charAt(i)) == -1){
+                mensaje = "El mensaje no sirve. Pruebe uno nuevo";
+            }
         }
-        if (texto.isEmpty() || texto.length() > 16){
+        if (texto.length() != 16){
             mensaje = "El mensaje no tiene la longitud adecuada (16 caracteres)";
         }
         if (llave.length() != 16){
-            System.out.println(llave.length());
             mensaje = "La llave no tiene la longitud adecuada (16 números)";
+        }
+        if (texto.isEmpty() || llave.isEmpty()){
+            mensaje = "Alguno de los dos campos está vacío";
         }
         return mensaje;
     }

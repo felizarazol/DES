@@ -58,7 +58,7 @@ public class VistaCifrar extends javax.swing.JFrame {
         k14 = new javax.swing.JButton();
         k15 = new javax.swing.JButton();
         k16 = new javax.swing.JButton();
-        atras = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
         PC_1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -99,7 +99,6 @@ public class VistaCifrar extends javax.swing.JFrame {
         iP = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         ip_1 = new javax.swing.JButton();
-        desencriptar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Cypher Process");
@@ -217,10 +216,10 @@ public class VistaCifrar extends javax.swing.JFrame {
             }
         });
 
-        atras.setText("Atras");
-        atras.addActionListener(new java.awt.event.ActionListener() {
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atrasActionPerformed(evt);
+                salirActionPerformed(evt);
             }
         });
 
@@ -480,13 +479,6 @@ public class VistaCifrar extends javax.swing.JFrame {
             }
         });
 
-        desencriptar.setText("Desencriptar");
-        desencriptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                desencriptarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -497,18 +489,16 @@ public class VistaCifrar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(atras, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(28, 28, 28)
-                                        .addComponent(desencriptar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(ip_1)
                                         .addGap(33, 33, 33)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -719,16 +709,11 @@ public class VistaCifrar extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(ip_1))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addComponent(desencriptar)))))
+                                .addGap(18, 18, 18)
+                                .addComponent(ip_1)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(atras)
+                            .addComponent(salir)
                             .addComponent(jLabel5))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -753,11 +738,10 @@ public class VistaCifrar extends javax.swing.JFrame {
         new PermutationC_1(this, true).setVisible(true);
     }//GEN-LAST:event_PC_1ActionPerformed
 
-    private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        new Principal().setVisible(true);
-    }//GEN-LAST:event_atrasActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_salirActionPerformed
 
     private void k2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_k2ActionPerformed
         // TODO add your handling code here:
@@ -1045,17 +1029,6 @@ public class VistaCifrar extends javax.swing.JFrame {
         new IP_1DES(this, true).setVisible(true);
     }//GEN-LAST:event_ip_1ActionPerformed
 
-    private void desencriptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desencriptarActionPerformed
-        // TODO add your handling code here:
-        Principal.llave = Cifrar.llave;
-        System.err.println(Cifrar.llave);
-        Principal.texto = ConvertirBitsAHexa.convertirBitsHexa(Cifrar.cyphertext);
-        System.err.println(ConvertirBitsAHexa.convertirBitsHexa(Cifrar.cyphertext));
-        VistaDescifrar llavesYMensaje = new VistaDescifrar();
-        this.setVisible(false);
-        llavesYMensaje.setVisible(true);
-    }//GEN-LAST:event_desencriptarActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -1109,8 +1082,6 @@ public class VistaCifrar extends javax.swing.JFrame {
     private javax.swing.JButton R7;
     private javax.swing.JButton R8;
     private javax.swing.JButton R9;
-    private javax.swing.JButton atras;
-    private javax.swing.JButton desencriptar;
     private javax.swing.JButton f1;
     private javax.swing.JButton f10;
     private javax.swing.JButton f11;
@@ -1150,6 +1121,7 @@ public class VistaCifrar extends javax.swing.JFrame {
     private javax.swing.JButton k7;
     private javax.swing.JButton k8;
     private javax.swing.JButton k9;
+    private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 
     private ArrayList<Integer> convertirArray(String mensaje){

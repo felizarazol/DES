@@ -24,6 +24,7 @@ public class Pruebas {
 //        text = ConvertirBitsAHexa
         text= sc.nextLine();
         Descifrar d = new Descifrar(text, key);
+        System.err.println(key);
         
         System.out.println("Directorio ejecucion = " + System.getProperty("user.dir"));
     } 

@@ -112,7 +112,6 @@ public class Descifrar {
                 contador++;
                 if((contador%64)==0||!nombreIterator.hasNext()){
                     descifrarTextos64(bloquesC, llave);
-                    //System.out.println("output  "+plainText);
                     bloquesC.clear();
                     L0.clear();L1.clear();L2.clear();L3.clear();L4.clear();
                     L5.clear();L6.clear();L7.clear();L8.clear();L9.clear();
@@ -143,7 +142,6 @@ public class Descifrar {
         }else{
             descifrarTextos64(text, llave);
         }
-        System.out.println(plainText);
     }
     
     private void descifrarTextos64(ArrayList<Integer> textoCifrado, String llave){
@@ -156,10 +154,10 @@ public class Descifrar {
         creacionSubcadenas();
         //Se aplica la inversa de IP
         IPinv(L0, R0);
-        System.out.println("");
-        System.out.println("Texto original"+plaintext);
-        System.out.println("");
-        System.out.println(ConvertirBitsAHexa.convertirBitsHexa(plaintext));
+//        System.out.println("");
+//        System.out.println("Texto original"+plaintext);
+//        System.out.println("");
+//        System.out.println(ConvertirBitsAHexa.convertirBitsHexa(plaintext));
         plainText=plainText+ConvertToText.toText(plaintext);
         
     }
@@ -173,7 +171,7 @@ public class Descifrar {
                     text.add(0);
                 }
             }else{
-                System.out.print("Que plainText tan largo!!!");
+                //System.out.print("Que plainText tan largo!!!");
                 System.exit(0);
             }
             
